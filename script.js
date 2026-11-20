@@ -1,4 +1,4 @@
-﻿
+
     let currentLang = 'ru';
     let currentPage = 'home';
     let currentFilter = 'all';
@@ -141,7 +141,7 @@
         home_hero_link: 'Услуги и цены →',
         home_hero_caption: '<span>Белград · Нови-Сад · Суботица (выезд по договоренности)</span><span class="font-mono">4K S-Log3 / 48h Turnaround</span>',
         home_work_heading: 'Избранные проекты',
-        home_work_intro: 'Работаем с клиниками, технологическими компаниями, авторами и локальным бизнесом, которым важна спокойная, взрослая подача в кадре.'
+        home_work_intro: 'Работаем с клиниками, технологическими компаниями, авторами и локальным бизнесом, которым важна спокойная, взрослая подача в кадре.',
         home_all_work_link: 'Все работы (6) →',
         home_approach_title: 'Подход и стандарты',
         home_adv1_title: 'Развертывание за 15 минут',
