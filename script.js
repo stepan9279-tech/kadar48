@@ -1,4 +1,4 @@
-
+﻿
     let currentLang = 'ru';
     let currentPage = 'home';
     let currentFilter = 'all';
@@ -22,9 +22,9 @@
         heroNote: { font: 'sans', weight: '400', italic: false, sizeDesktop: 16, sizeMobile: 14, lineHeight: '1.6' },
         contactGeo: { font: 'sans', weight: '400', italic: false, sizeDesktop: 14, sizeMobile: 13, lineHeight: '1.5' }
       },
-      heroImg: 'assets/hero.svg',
-      studioImg1: 'assets/studio.svg',
-      studioImg2: 'assets/editing.svg',
+      heroImg: 'assets/photos/photo-1492691527719-9d1e07e534b4.avif',
+      studioImg1: 'assets/photos/photo-1598899134739-24c46f58b8c0.avif',
+      studioImg2: 'assets/photos/photo-1574717024653-61fd2cf4d44d.avif',
       telegramHandle: '@kadar48_bg',
       whatsappNumber: '+381 62 840 48 48',
       emailAddress: 'hello@kadar48.rs',
@@ -611,9 +611,9 @@
         category: 'reels',
         colSpan: 'md:col-span-5',
         aspect: 'aspect-[4/5]',
-        image: 'assets/hero.svg',
-        img2: 'assets/studio.svg',
-        img3: 'assets/editing.svg',
+        image: 'assets/photos/photo-1492691527719-9d1e07e534b4.avif',
+        img2: 'assets/photos/photo-1588776814546-1ffcf47267a5.avif',
+        img3: 'assets/photos/photo-1574717024653-61fd2cf4d44d.avif',
         ru: {
           title: 'Vračar Aesthetic Clinic',
           niche: 'Эстетическая медицина · Белград (Врачар)',
@@ -648,9 +648,9 @@
         category: 'podcast',
         colSpan: 'md:col-span-6 md:col-start-7 md:mt-24',
         aspect: 'aspect-[16/10]',
-        image: 'assets/studio.svg',
-        img2: 'assets/editing.svg',
-        img3: 'assets/hero.svg',
+        image: 'assets/photos/photo-1590602847861-f357a9332bbc.avif',
+        img2: 'assets/photos/photo-1598899134739-24c46f58b8c0.avif',
+        img3: 'assets/photos/photo-1574717024653-61fd2cf4d44d.avif',
         ru: {
           title: 'Novi Beograd Fintech Podcast',
           niche: 'Финтех и IT · Белград (Нови-Београд)',
@@ -685,9 +685,9 @@
         category: 'brands',
         colSpan: 'md:col-span-6',
         aspect: 'aspect-[16/10]',
-        image: 'assets/hero.svg',
-        img2: 'assets/studio.svg',
-        img3: 'assets/editing.svg',
+        image: 'assets/photos/photo-1600585154340-be6161a56a0c.avif',
+        img2: 'assets/photos/photo-1600596542815-ffad4c1539a9.avif',
+        img3: 'assets/photos/photo-1492691527719-9d1e07e534b4.avif',
         ru: {
           title: 'Belgrade Waterfront Real Estate',
           niche: 'Недвижимость · Белград',
@@ -722,9 +722,9 @@
         category: 'reels',
         colSpan: 'md:col-span-5 md:col-start-8 md:-mt-16',
         aspect: 'aspect-[4/5]',
-        image: 'assets/hero.svg',
-        img2: 'assets/studio.svg',
-        img3: 'assets/editing.svg',
+        image: 'assets/photos/photo-1588776814546-1ffcf47267a5.avif',
+        img2: 'assets/photos/photo-1492691527719-9d1e07e534b4.avif',
+        img3: 'assets/photos/photo-1574717024653-61fd2cf4d44d.avif',
         ru: {
           title: 'Novi Sad Dental Studio',
           niche: 'Стоматология · Нови-Сад (Выездная съемка)',
@@ -759,9 +759,9 @@
         category: 'podcast',
         colSpan: 'md:col-span-5',
         aspect: 'aspect-[4/5]',
-        image: 'assets/hero.svg',
-        img2: 'assets/studio.svg',
-        img3: 'assets/editing.svg',
+        image: 'assets/photos/photo-1534528741775-53994a69daeb.avif',
+        img2: 'assets/photos/photo-1590602847861-f357a9332bbc.avif',
+        img3: 'assets/photos/photo-1598899134739-24c46f58b8c0.avif',
         ru: {
           title: 'Serbia AI SaaS Hub',
           niche: 'IT-продукт и личный бренд · Нови-Сад / Белград',
@@ -796,9 +796,9 @@
         category: 'brands',
         colSpan: 'md:col-span-6 md:col-start-7 md:mt-16',
         aspect: 'aspect-[16/10]',
-        image: 'assets/hero.svg',
-        img2: 'assets/studio.svg',
-        img3: 'assets/editing.svg',
+        image: 'assets/photos/photo-1600596542815-ffad4c1539a9.avif',
+        img2: 'assets/photos/photo-1600585154340-be6161a56a0c.avif',
+        img3: 'assets/photos/photo-1492691527719-9d1e07e534b4.avif',
         ru: {
           title: 'Dedinje & Fruška Gora Residences',
           niche: 'Архитектура и загородные резиденции · Сербия',
@@ -1028,7 +1028,15 @@
         if (savedProj) {
           const parsedProj = JSON.parse(savedProj);
           if (Array.isArray(parsedProj) && parsedProj.length > 0) {
-            projects = parsedProj;
+            projects = parsedProj.map((project) => {
+              const factoryProject = FACTORY_PROJECTS.find((item) => item.id === project.id);
+              if (!factoryProject) return project;
+              const next = { ...project };
+              ['image', 'img2', 'img3'].forEach((key) => {
+                if (!next[key] || next[key].endsWith('.svg') || next[key].includes('/kadar48/assets/photos/') || next[key].includes('images.unsplash.com')) next[key] = factoryProject[key];
+              });
+              return next;
+            });
           }
         }
       } catch (e) {}
@@ -1106,9 +1114,18 @@
       const heroImgEl = document.getElementById('cms-hero-img');
       const stImg1El = document.getElementById('cms-studio-img1');
       const stImg2El = document.getElementById('cms-studio-img2');
-      if (heroImgEl && siteConfig.heroImg) heroImgEl.src = siteConfig.heroImg;
-      if (stImg1El && siteConfig.studioImg1) stImg1El.src = siteConfig.studioImg1;
-      if (stImg2El && siteConfig.studioImg2) stImg2El.src = siteConfig.studioImg2;
+      if (heroImgEl) {
+        if (!siteConfig.heroImg || siteConfig.heroImg.endsWith('.svg') || siteConfig.heroImg.includes('/kadar48/assets/photos/') || siteConfig.heroImg.includes('images.unsplash.com')) siteConfig.heroImg = FACTORY_DEFAULTS.heroImg;
+        heroImgEl.src = siteConfig.heroImg;
+      }
+      if (stImg1El) {
+        if (!siteConfig.studioImg1 || siteConfig.studioImg1.endsWith('.svg') || siteConfig.studioImg1.includes('/kadar48/assets/photos/') || siteConfig.studioImg1.includes('images.unsplash.com')) siteConfig.studioImg1 = FACTORY_DEFAULTS.studioImg1;
+        stImg1El.src = siteConfig.studioImg1;
+      }
+      if (stImg2El) {
+        if (!siteConfig.studioImg2 || siteConfig.studioImg2.endsWith('.svg') || siteConfig.studioImg2.includes('/kadar48/assets/photos/') || siteConfig.studioImg2.includes('images.unsplash.com')) siteConfig.studioImg2 = FACTORY_DEFAULTS.studioImg2;
+        stImg2El.src = siteConfig.studioImg2;
+      }
 
       // Contacts
       const tgText = document.getElementById('cms-contact-tg-text');
@@ -2526,7 +2543,10 @@
       const exportDoc = document.documentElement.cloneNode(true);
       ['admin-modal', 'quick-request-modal', 'cookie-modal'].forEach(id => exportDoc.querySelector('#' + id)?.remove());
       exportDoc.querySelectorAll('[id^="adm-"]').forEach(el => el.remove());
+      exportDoc.querySelectorAll('script[src="script.js"]').forEach((node) => node.remove());
       exportDoc.querySelectorAll('[onclick*="openAdminGate"], #stealth-copyright').forEach(el => el.removeAttribute('onclick'));
+      const stylesheet = exportDoc.querySelector('link[rel="stylesheet"][href="styles.css"]');
+      if (stylesheet) stylesheet.href = 'styles.css';
       const script = Array.from(exportDoc.querySelectorAll('script')).find(node => node.textContent.includes('__KADAR48_CMS_STATE_START__'));
       if (script) {
         let js = script.textContent;
@@ -2700,5 +2720,4 @@
       // Never expose an URL/hash backdoor on a public GitHub Pages deployment.
     });
   
-
 
