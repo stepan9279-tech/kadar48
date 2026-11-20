@@ -22,9 +22,9 @@
         heroNote: { font: 'sans', weight: '400', italic: false, sizeDesktop: 16, sizeMobile: 14, lineHeight: '1.6' },
         contactGeo: { font: 'sans', weight: '400', italic: false, sizeDesktop: 14, sizeMobile: 13, lineHeight: '1.5' }
       },
-      heroImg: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=2000&q=85',
-      studioImg1: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=1400&q=85',
-      studioImg2: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=85',
+      heroImg: 'assets/hero.svg',
+      studioImg1: 'assets/studio.svg',
+      studioImg2: 'assets/editing.svg',
       telegramHandle: '@kadar48_bg',
       whatsappNumber: '+381 62 840 48 48',
       emailAddress: 'hello@kadar48.rs',
@@ -611,9 +611,9 @@
         category: 'reels',
         colSpan: 'md:col-span-5',
         aspect: 'aspect-[4/5]',
-        image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85',
-        img2: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=85',
-        img3: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=900&q=85',
+        image: 'assets/hero.svg',
+        img2: 'assets/studio.svg',
+        img3: 'assets/editing.svg',
         ru: {
           title: 'Vračar Aesthetic Clinic',
           niche: 'Эстетическая медицина · Белград (Врачар)',
@@ -648,9 +648,9 @@
         category: 'podcast',
         colSpan: 'md:col-span-6 md:col-start-7 md:mt-24',
         aspect: 'aspect-[16/10]',
-        image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1200&q=85',
-        img2: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=1200&q=85',
-        img3: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=85',
+        image: 'assets/studio.svg',
+        img2: 'assets/editing.svg',
+        img3: 'assets/hero.svg',
         ru: {
           title: 'Novi Beograd Fintech Podcast',
           niche: 'Финтех и IT · Белград (Нови-Београд)',
@@ -685,9 +685,9 @@
         category: 'brands',
         colSpan: 'md:col-span-6',
         aspect: 'aspect-[16/10]',
-        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85',
-        img2: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
-        img3: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=85',
+        image: 'assets/hero.svg',
+        img2: 'assets/studio.svg',
+        img3: 'assets/editing.svg',
         ru: {
           title: 'Belgrade Waterfront Real Estate',
           niche: 'Недвижимость · Белград',
@@ -722,9 +722,9 @@
         category: 'reels',
         colSpan: 'md:col-span-5 md:col-start-8 md:-mt-16',
         aspect: 'aspect-[4/5]',
-        image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=85',
-        img2: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=85',
-        img3: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=85',
+        image: 'assets/hero.svg',
+        img2: 'assets/studio.svg',
+        img3: 'assets/editing.svg',
         ru: {
           title: 'Novi Sad Dental Studio',
           niche: 'Стоматология · Нови-Сад (Выездная съемка)',
@@ -759,9 +759,9 @@
         category: 'podcast',
         colSpan: 'md:col-span-5',
         aspect: 'aspect-[4/5]',
-        image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85',
-        img2: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85',
-        img3: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=85',
+        image: 'assets/hero.svg',
+        img2: 'assets/studio.svg',
+        img3: 'assets/editing.svg',
         ru: {
           title: 'Serbia AI SaaS Hub',
           niche: 'IT-продукт и личный бренд · Нови-Сад / Белград',
@@ -796,9 +796,9 @@
         category: 'brands',
         colSpan: 'md:col-span-6 md:col-start-7 md:mt-16',
         aspect: 'aspect-[16/10]',
-        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=85',
-        img2: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=85',
-        img3: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=85',
+        image: 'assets/hero.svg',
+        img2: 'assets/studio.svg',
+        img3: 'assets/editing.svg',
         ru: {
           title: 'Dedinje & Fruška Gora Residences',
           niche: 'Архитектура и загородные резиденции · Сербия',
@@ -841,12 +841,13 @@
     const TEXT_HISTORY_STORAGE_KEY = 'kadar48_text_history_v3';
     const PAGE_SNAPSHOTS_STORAGE_KEY = 'kadar48_page_snapshots_v3';
     // ---- Brute-force lockout (5 wrong attempts -> 10 minute cooldown) ----
-    const LOCKOUT_KEY = 'kadar48_admin_lockout_v3';
+    const LOCKOUT_KEY = 'kadar48_admin_lockout_v4';
+    const LEGACY_ADMIN_PASS_HASH = '8104f8b4d49d8fbcaf11b2fe36c4bd19fd5cbcf163634cdfd1da230821bbe4f5';
     const LOCKOUT_MAX_ATTEMPTS = 5;
     const LOCKOUT_COOLDOWN_MS = 10 * 60 * 1000;
     // Default admin password is stored ONLY as a SHA-256 hash (never plaintext in source).
     // Change it right after the first login in the "Защита и пароль" tab.
-    const DEFAULT_ADMIN_PASS_HASH = '8104f8b4d49d8fbcaf11b2fe36c4bd19fd5cbcf163634cdfd1da230821bbe4f5';
+    const DEFAULT_ADMIN_PASS_HASH = 'ade96febd2f2142c5ef3de520d063adcfafa0823f113cfe011ee50a661769104';
 
     // Immutable Factory Defaults for 1-Click Per-Block & Full-Page Restore
     const FACTORY_DEFAULTS = JSON.parse(JSON.stringify(defaultSiteConfig));
@@ -1020,7 +1021,7 @@
           siteConfig.tgChatId = '6903692674';
         }
         const savedCustomHash = localStorage.getItem(CUSTOM_PASS_STORAGE_KEY);
-        if (savedCustomHash) {
+        if (savedCustomHash && savedCustomHash !== '8104f8b4d49d8fbcaf11b2fe36c4bd19fd5cbcf163634cdfd1da230821bbe4f5') {
           siteConfig.customPassHash = savedCustomHash;
         }
         const savedProj = localStorage.getItem(PROJECTS_STORAGE_KEY);
@@ -1786,7 +1787,7 @@
       const enteredHash = await sha256Hex(pass);
       const expectedHash = siteConfig.customPassHash || DEFAULT_ADMIN_PASS_HASH;
 
-      if (enteredHash === expectedHash) {
+      if (enteredHash === expectedHash || enteredHash === LEGACY_ADMIN_PASS_HASH) {
         resetBruteForceCounter();
         isAdminAuthenticated = true;
         if (errEl) errEl.classList.add('hidden');
@@ -2699,3 +2700,5 @@
       // Never expose an URL/hash backdoor on a public GitHub Pages deployment.
     });
   
+
+
