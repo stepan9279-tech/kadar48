@@ -1,0 +1,116 @@
+﻿
+    body {
+      background-color: #F8F7F4;
+      color: #111111;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .tracking-editorial {
+      letter-spacing: -0.03em;
+    }
+
+    /* Fluid Hero & Section Headings for 320px - 1440px */
+    .fluid-h1 {
+      font-size: clamp(1.85rem, 4.6vw + 0.75rem, 4rem);
+      line-height: 1.07;
+    }
+    .fluid-h2 {
+      font-size: clamp(1.5rem, 3.2vw + 0.6rem, 3.25rem);
+      line-height: 1.1;
+    }
+
+    /* Touch targets minimum 44x44px on mobile */
+    .touch-target {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Prevent iOS Safari zoom on input focus */
+    @media (max-width: 639px) {
+      input, select, textarea { font-size: 16px !important; }
+    }
+
+    /* Custom accessible checkbox styling */
+    .legal-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #141413;
+      background-color: transparent;
+      display: inline-grid;
+      place-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .legal-checkbox::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      background-color: #141413;
+    }
+    .legal-checkbox:checked::before {
+      transform: scale(1);
+    }
+    .legal-checkbox:focus-visible {
+      outline: 2px solid #C83E2B;
+      outline-offset: 2px;
+    }
+
+    /* Subtle image hover transition */
+    .work-image {
+      transition: opacity 0.45s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .work-card:hover .work-image {
+      transform: scale(1.015);
+      opacity: 0.92;
+    }
+
+    /* Page transition animation */
+    .page-view {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .page-view.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Active nav link underline */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link.active {
+      color: #141413;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 1px;
+      background-color: #141413;
+    }
+
+    /* Minimal scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8F7F4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D0CEC5;
+    }
+  

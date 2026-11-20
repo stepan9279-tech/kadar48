@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KADAR 48 — Видеосъемка и монтаж в Сербии (Белград, Нови-Сад и выезд)</title>
+  <meta name="description" content="KADAR 48 — снимаем разговорные и коммерческие видео по всей Сербии (Белград, Нови-Сад и выезд в любой город по договоренности). Готовый монтаж — через 48 часов." />
+  <meta name="theme-color" content="#F8F7F4" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KADAR 48 — Видеосъемка и монтаж в Сербии" />
+  <meta property="og:description" content="Мобильный видеопродакшн в Белграде, Нови-Саде и по Сербии. Готовый монтаж — через 48 часов." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23141413'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='26' fill='%23F8F7F4'%3EK48%3C/text%3E%3C/svg%3E" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"VideoProduction","name":"KADAR 48 Production","description":"Видеосъемка и монтаж в Белграде, Нови-Саде и по Сербии.","areaServed":{"@type":"Country","name":"Serbia"},"email":"hello@kadar48.rs","telephone":"+381628404848","url":"https://kadar48.rs"}
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-bg text-ink selection:bg-ink selection:text-bg min-h-screen flex flex-col justify-between">
+
+  <!-- ===================================================================== -->
+  <!-- PERSISTENT TOP NAVIGATION                                             -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-bg/95 backdrop-blur-sm border-b border-line">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-12 py-3 sm:py-5 flex items-center justify-between gap-4">
+      
+      <!-- Brand Wordmark -->
+      <button type="button" onclick="navigateTo('home')" class="touch-target flex items-baseline gap-2.5 focus:outline-none text-left cursor-pointer group">
+        <span class="text-base sm:text-lg font-medium tracking-editorial text-ink">KADAR 48</span>
+        <span data-i18n="brand_country" class="font-mono text-[11px] uppercase tracking-wider text-muted group-hover:text-ink transition-colors">БЕЛГРАД · НОВИ-САД · СУБОТИЦА</span>
+      </button>
+
+      <!-- Desktop Page Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm text-muted" aria-label="Main Navigation">
+        <button type="button" onclick="navigateTo('home')" data-nav="home" data-i18n="nav_home" class="nav-link active hover:text-ink transition-colors cursor-pointer py-2">Главная</button>
+        <button type="button" onclick="navigateTo('works')" data-nav="works" data-i18n="nav_work" class="nav-link hover:text-ink transition-colors cursor-pointer py-2">Работы</button>
+        <button type="button" onclick="navigateTo('services')" data-nav="services" data-i18n="nav_services" class="nav-link hover:text-ink transition-colors cursor-pointer py-2">Услуги и цены</button>
+        <button type="button" onclick="navigateTo('studio')" data-nav="studio" data-i18n="nav_studio" class="nav-link hover:text-ink transition-colors cursor-pointer py-2">Формат и техника</button>
+        <button type="button" onclick="navigateTo('contact')" data-nav="contact" data-i18n="nav_contact" class="nav-link hover:text-ink transition-colors cursor-pointer py-2">Контакты</button>
+      </nav>
+
+      <!-- Language, Quick Request & Mobile Drawer Button -->
+      <div class="flex items-center gap-3 sm:gap-6">
+        <div class="flex items-center gap-1 text-xs tracking-wide" role="group" aria-label="Language">
+          <button type="button" onclick="setLang('ru')" id="btn-ru" class="lang-switch touch-target px-1.5 text-ink font-medium cursor-pointer">RU</button>
+          <span class="text-line">/</span>
+          <button type="button" onclick="setLang('sr')" id="btn-sr" class="lang-switch touch-target px-1.5 text-muted hover:text-ink transition-colors cursor-pointer">SR</button>
+          <span class="text-line">/</span>
+          <button type="button" onclick="setLang('en')" id="btn-en" class="lang-switch touch-target px-1.5 text-muted hover:text-ink transition-colors cursor-pointer">EN</button>
+        </div>
+
+        <button
+          type="button"
+          onclick="openQuickModal()"
+          data-i18n="nav_cta"
+          class="hidden sm:inline-flex touch-target text-xs text-ink border-b border-ink pb-0.5 hover:text-muted hover:border-muted transition-colors cursor-pointer"
+        >
+          Обсудить съемку →
+        </button>
+
+        <!-- Accessible Mobile Menu Trigger (44x44px) -->
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          onclick="toggleMobileDrawer()"
+          aria-expanded="false"
+          aria-controls="mobile-drawer"
+          class="lg:hidden touch-target px-2.5 border border-line text-xs font-mono uppercase tracking-wider text-ink hover:bg-surface transition-colors cursor-pointer"
+        >
+          <span id="mobile-menu-label" data-i18n="menu_open">Меню</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Full-Screen Accessible Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="hidden lg:hidden fixed inset-x-0 top-[61px] bottom-0 bg-bg z-50 border-t border-line overflow-y-auto">
+      <div class="px-6 py-8 flex flex-col justify-between min-h-full">
+        <nav class="flex flex-col divide-y divide-line border-b border-line" aria-label="Mobile Navigation">
+          <button type="button" onclick="navigateFromMobile('home')" data-nav-mobile="home" data-i18n="nav_home" class="touch-target py-4 text-left text-xl font-normal tracking-editorial text-ink">Главная</button>
+          <button type="button" onclick="navigateFromMobile('works')" data-nav-mobile="works" data-i18n="nav_work" class="touch-target py-4 text-left text-xl font-normal tracking-editorial text-muted">Работы</button>
+          <button type="button" onclick="navigateFromMobile('services')" data-nav-mobile="services" data-i18n="nav_services" class="touch-target py-4 text-left text-xl font-normal tracking-editorial text-muted">Услуги и цены</button>
+          <button type="button" onclick="navigateFromMobile('studio')" data-nav-mobile="studio" data-i18n="nav_studio" class="touch-target py-4 text-left text-xl font-normal tracking-editorial text-muted">Формат и техника</button>
+          <button type="button" onclick="navigateFromMobile('contact')" data-nav-mobile="contact" data-i18n="nav_contact" class="touch-target py-4 text-left text-xl font-normal tracking-editorial text-muted">Контакты</button>
+          <button type="button" onclick="navigateFromMobile('privacy')" data-nav-mobile="privacy" data-i18n="nav_privacy" class="touch-target py-4 text-left text-sm text-muted">Политика конфиденциальности и Cookie</button>
+        </nav>
+
+        <div class="pt-8 space-y-6">
+          <button
+            type="button"
+            onclick="closeMobileDrawer(); openQuickModal();"
+            data-i18n="nav_cta"
+            class="w-full touch-target justify-center py-3.5 px-6 bg-ink text-bg text-sm font-normal cursor-pointer"
+          >
+            Обсудить съемку →
+          </button>
+          <div class="text-xs text-muted space-y-1">
+            <p class="font-mono text-ink">KADAR 48 — БЕЛГРАД · НОВИ-САД · СУБОТИЦА</p>
+            <p class="cms-contact-summary">Telegram: @kadar48_bg · WhatsApp: +381 62 840 48 48</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN ROUTER CONTAINER                                                 -->
+  <!-- ===================================================================== -->
+  <main class="flex-grow">
+
+    <!-- =================================================================== -->
+    <!-- PAGE 1: HOME (ГЛАВНАЯ)                                              -->
+    <!-- =================================================================== -->
+    <div id="page-home" class="page-view active">
+      <section class="max-w-[1320px] mx-auto px-4 sm:px-12 pt-14 sm:pt-28 pb-20 sm:pb-32">
+        <div class="max-w-4xl">
+          <p class="font-mono text-xs text-muted mb-5 flex items-center gap-2">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#C83E2B]"></span>
+            <span id="cms-hero-badge" data-i18n="home_hero_badge">БЕЛГРАД · НОВИ-САД · СУБОТИЦА (ДРУГИЕ ГОРОДА — ПО ДОГОВОРЕННОСТИ)</span>
+          </p>
+          <h1 id="cms-hero-title-wrap" class="fluid-h1 font-normal tracking-editorial text-ink">
+            <span id="cms-hero-title-main">Снимаем и монтируем видео для бизнеса и экспертов. Готовый материал —</span>
+            <span id="cms-hero-title-accent" class="font-serif italic font-normal">через 48 часов.</span>
+          </h1>
+        </div>
+
+        <div class="mt-12 sm:mt-20 pt-8 border-t border-line grid grid-cols-1 md:grid-cols-12 gap-8 items-baseline">
+          <div class="md:col-span-5 lg:col-span-4">
+            <p id="cms-hero-lead" data-i18n="home_hero_lead" class="text-sm sm:text-base text-ink font-normal leading-relaxed">
+              Работаем в Белграде, Нови-Саде и Суботице, в остальные города выезжаем по договоренности.
+            </p>
+          </div>
+          <div class="md:col-span-5 lg:col-span-5">
+            <p id="cms-hero-note" data-i18n="home_hero_note" class="text-sm sm:text-base text-muted font-normal leading-relaxed">
+              Привозим мобильный кино-свет с сотами, микрофоны, телесуфлер и две 4K-камеры прямо к вам в клинику, офис или студию — и отдаем готовый монтаж ровно через двое суток.
+            </p>
+          </div>
+          <div class="md:col-span-2 lg:col-span-3 md:text-right">
+            <button
+              type="button"
+              onclick="navigateTo('services')"
+              data-i18n="home_hero_link"
+              class="touch-target text-sm text-ink border-b border-ink pb-0.5 hover:text-muted hover:border-muted transition-colors cursor-pointer"
+            >
+              Услуги и цены →
+            </button>
+          </div>
+        </div>
+
+        <!-- Wide Editorial Photograph -->
+        <figure class="mt-16 sm:mt-24">
+          <div class="w-full aspect-[16/9] sm:aspect-[21/9] bg-surface overflow-hidden">
+            <img
+              fetchpriority="high"
+              width="1800"
+              height="900"
+              id="cms-hero-img"
+              src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=2000&q=85"
+              alt="Съемочный процесс KADAR 48 в Сербии"
+              onerror="this.src='https://placehold.co/1800x800/F1EFEA/6E6D68?text=KADAR+48+Serbia'"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <figcaption data-i18n="home_hero_caption" class="mt-3 text-xs text-muted flex justify-between">
+            <span>Мобильный продакшн и съемка в студиях по всей Сербии</span>
+            <span class="font-mono">4K S-Log3 / 48h Turnaround</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- Selected 3 Works Preview on Home -->
+      <section class="max-w-[1320px] mx-auto px-6 sm:px-12 py-24 sm:py-36 border-t border-line">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 sm:mb-24 items-baseline">
+          <div class="md:col-span-4">
+            <h2 data-i18n="home_work_heading" class="text-xs uppercase tracking-widest text-muted">Избранные проекты</h2>
+          </div>
+          <div class="md:col-span-6">
+            <p data-i18n="home_work_intro" class="text-xl sm:text-2xl font-normal tracking-editorial leading-snug text-ink">
+              Работаем с клиниками, технологическими компаниями, авторами и локальным бизнесом, которым важна спокойная, взрослая подача в кадре.
+            </p>
+          </div>
+          <div class="md:col-span-2 md:text-right">
+            <button
+              type="button"
+              onclick="navigateTo('works')"
+              data-i18n="home_all_work_link"
+              class="text-sm text-ink border-b border-ink pb-0.5 hover:text-muted hover:border-muted transition-colors cursor-pointer"
+            >
+              Все работы (6) →
+            </button>
+          </div>
+        </div>
+
+        <div id="home-work-preview" class="grid grid-cols-1 md:grid-cols-12 gap-y-20 sm:gap-y-28 md:gap-x-12 items-start">
+          <!-- Populated dynamically with first 3 projects -->
+        </div>
+      </section>
+
+      <!-- Brief Editorial Overview of Approach on Home -->
+      <section class="max-w-[1320px] mx-auto px-4 sm:px-12 py-20 sm:py-32 border-t border-line">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+          <div class="md:col-span-3">
+            <span class="font-mono text-xs text-muted">STANDARDS</span>
+            <h2 data-i18n="home_approach_title" class="mt-3 text-2xl sm:text-3xl font-normal tracking-editorial text-ink">
+              Подход и стандарты
+            </h2>
+          </div>
+
+          <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-10">
+            <div class="border-t border-line pt-6">
+              <span class="font-mono text-xs text-muted">01</span>
+              <h3 data-i18n="home_adv1_title" class="mt-3 text-lg font-normal text-ink">Развертывание за 15 минут</h3>
+              <p data-i18n="home_adv1_desc" class="mt-2 text-sm text-muted leading-relaxed">
+                Привозим компактный мягкий свет с сотами, петлички и накамерный телесуфлер прямо в ваш кабинет или офис и быстро выстраиваем студийную картинку.
+              </p>
+            </div>
+            <div class="border-t border-line pt-6">
+              <span class="font-mono text-xs text-muted">02</span>
+              <h3 data-i18n="home_adv2_title" class="mt-3 text-lg font-normal text-ink">Готовность за 48 часов</h3>
+              <p data-i18n="home_adv2_desc" class="mt-2 text-sm text-muted leading-relaxed">
+                Вместо ожидания неделями вы получаете готовые вертикальные ролики или смонтированный подкаст с цветокоррекцией, чистым звуком и субтитрами через двое суток.
+              </p>
+            </div>
+            <div class="border-t border-line pt-6">
+              <span class="font-mono text-xs text-muted">03</span>
+              <h3 data-i18n="home_adv3_title" class="mt-3 text-lg font-normal text-ink">Спокойная подача в кадре</h3>
+              <p data-i18n="home_adv3_desc" class="mt-2 text-sm text-muted leading-relaxed">
+                Работаем с врачами, предпринимателями и инженерами: выводим тезисы на телесуфлер перед объективом и помогаем говорить уверенно без заучивания текста.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 sm:mt-20 pt-10 border-t border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <p data-i18n="home_bottom_prompt" class="text-base sm:text-lg text-ink font-normal">
+            Посмотрите стоимость съемочных форматов или список оборудования, с которым мы работаем.
+          </p>
+          <div class="flex flex-wrap items-center gap-6 sm:gap-8 text-sm">
+            <button type="button" onclick="navigateTo('services')" data-i18n="home_to_services" class="touch-target text-ink border-b border-ink pb-0.5 hover:text-muted hover:border-muted transition-colors cursor-pointer">
+              Смотреть услуги и цены →
+            </button>
+            <button type="button" onclick="navigateTo('studio')" data-i18n="home_to_studio" class="touch-target text-muted hover:text-ink transition-colors cursor-pointer">
+              Формат и техника →
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+      <!-- PAGE 2: WORK ARCHIVE (РАБОТЫ)                                       -->
+    <!-- =================================================================== -->
+    <div id="page-works" class="page-view">
+      <section class="max-w-[1320px] mx-auto px-4 sm:px-12 pt-14 sm:pt-24 pb-24 sm:pb-40">
+        <div class="max-w-3xl">
+          <p class="font-mono text-xs text-muted mb-4">ARCHIVE / SERBIA</p>
+          <h1 data-i18n="work_page_title" class="fluid-h2 font-normal tracking-editorial text-ink">
+            Работы и кейсы <span class="font-serif italic font-normal">в Сербии</span>
+          </h1>
+          <p data-i18n="work_page_sub" class="mt-6 text-base sm:text-lg text-muted leading-relaxed">
+            Проекты в Белграде, Нови-Саде и на выезде. Выберите любой кейс, чтобы посмотреть задачу, особенности съемки и результат клиента.
+          </p>
+        </div>
+
+        <!-- Typographic Filter Bar (Touch Targets >= 44px) -->
+        <div class="mt-12 pt-4 border-t border-line flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          <button type="button" onclick="filterWork('all')" data-filter="all" data-i18n="filter_all" class="work-filter-btn touch-target text-ink font-medium border-b border-ink cursor-pointer">
+            Все проекты
+          </button>
+          <button type="button" onclick="filterWork('reels')" data-filter="reels" data-i18n="filter_reels" class="work-filter-btn touch-target text-muted hover:text-ink transition-colors cursor-pointer">
+            Reels / Эксперты
+          </button>
+          <button type="button" onclick="filterWork('podcast')" data-filter="podcast" data-i18n="filter_podcast" class="work-filter-btn touch-target text-muted hover:text-ink transition-colors cursor-pointer">
+            Подкасты и YouTube
+          </button>
+          <button type="button" onclick="filterWork('brands')" data-filter="brands" data-i18n="filter_brands" class="work-filter-btn touch-target text-muted hover:text-ink transition-colors cursor-pointer">
+            Бренды и недвижимость
+          </button>
+        </div>
+
+        <!-- Staggered Grid -->
+        <div id="work-archive-grid" class="mt-12 sm:mt-20 grid grid-cols-1 md:grid-cols-12 gap-y-20 sm:gap-y-28 md:gap-x-12 items-start">
+          <!-- Populated via JavaScript -->
+        </div>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 2B: SINGLE PROJECT FULL PAGE (СТРАНИЦА ПРОЕКТА)                -->
+    <!-- =================================================================== -->
+    <div id="page-project" class="page-view">
+      <article class="max-w-[1320px] mx-auto px-6 sm:px-12 pt-12 sm:pt-20 pb-28 sm:pb-40">
+        <!-- Back to Works -->
+        <div class="pb-8 border-b border-line flex items-center justify-between">
+          <button
+            type="button"
+            onclick="navigateTo('works')"
+            data-i18n="proj_back"
+            class="text-xs sm:text-sm text-muted hover:text-ink transition-colors cursor-pointer"
+          >
+            ← Все работы
+          </button>
+          <span id="proj-detail-index" class="font-mono text-xs text-muted">01 / 06</span>
+        </div>
+
+        <!-- Project Header & Metadata -->
+        <div class="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+          <div class="md:col-span-8">
+            <p id="proj-detail-niche" class="text-xs uppercase tracking-widest text-muted mb-3"></p>
+            <h1 id="proj-detail-title" class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-editorial leading-[1.08] text-ink"></h1>
+          </div>
+          <div class="md:col-span-4 md:text-right">
+            <p id="proj-detail-metric" class="font-mono text-sm sm:text-base text-ink"></p>
+            <p id="proj-detail-format" class="mt-1 text-xs text-muted"></p>
+          </div>
+        </div>
+
+        <!-- Main Hero Still -->
+        <div class="mt-12 sm:mt-16 w-full aspect-[16/9] bg-surface overflow-hidden">
+          <img id="proj-detail-hero-img" src="" alt="" class="w-full h-full object-cover" />
+        </div>
+
+        <!-- 3 Editorial Columns: Task, Shoot, Results -->
+        <div class="mt-16 sm:mt-24 pt-12 border-t border-line grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12">
+          <div class="md:col-span-4">
+            <span class="font-mono text-xs text-muted">01</span>
+            <h2 data-i18n="proj_col_task" class="mt-2 text-sm font-medium text-ink">Задача</h2>
+            <p id="proj-detail-p1" class="mt-4 text-sm sm:text-base text-muted leading-relaxed"></p>
+          </div>
+          <div class="md:col-span-4">
+            <span class="font-mono text-xs text-muted">02</span>
+            <h2 data-i18n="proj_col_shoot" class="mt-2 text-sm font-medium text-ink">Как снимали</h2>
+            <p id="proj-detail-p2" class="mt-4 text-sm sm:text-base text-muted leading-relaxed"></p>
+          </div>
+          <div class="md:col-span-4">
+            <span class="font-mono text-xs text-muted">03</span>
+            <h2 data-i18n="proj_col_result" class="mt-2 text-sm font-medium text-ink">Результат</h2>
+            <p id="proj-detail-p3" class="mt-4 text-sm sm:text-base text-ink leading-relaxed"></p>
+          </div>
+        </div>
+
+        <!-- Secondary Stills Pair -->
+        <div class="mt-16 sm:mt-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-7 aspect-[16/10] bg-surface overflow-hidden">
+            <img id="proj-detail-img2" src="" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div class="md:col-span-5 aspect-[4/5] bg-surface overflow-hidden">
+            <img id="proj-detail-img3" src="" alt="" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <!-- Bottom Navigation to Next Project or Inquiry -->
+        <div class="mt-24 pt-10 border-t border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <button
+            type="button"
+            onclick="inquireFromProject()"
+            data-i18n="proj_inquire_btn"
+            class="text-sm sm:text-base text-ink border-b border-ink pb-0.5 hover:text-muted hover:border-muted transition-colors cursor-pointer"
+          >
+            Обсудить похожую съемку →
+          </button>
+
+          <button
+            type="button"
+            id="proj-next-btn"
+            class="text-sm sm:text-base text-muted hover:text-ink transition-colors cursor-pointer"
+          >
+            Следующий проект →
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 3: SERVICES & RATES (УСЛУГИ И ЦЕНЫ)                            -->
+    <!-- =================================================================== -->
+    <div id="page-services" class="page-view">
+      <section class="max-w-[1320px] mx-auto px-4 sm:px-12 pt-16 sm:pt-24 pb-28 sm:pb-40">
+        <div class="max-w-3xl mb-16 sm:mb-24">
+          <p class="font-mono text-xs text-muted mb-4">SERVICES & RATES — SERBIA</p>
+          <h1 data-i18n="services_page_title" class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-editorial leading-[1.08] text-ink">
+            Услуги и стоимость <span class="font-serif italic font-normal">работы</span>
+          </h1>
+          <p data-i18n="services_page_sub" class="mt-6 text-base sm:text-lg text-muted leading-relaxed">
+            Прозрачная стоимость по объему готового материала. Работаем в Белграде и Нови-Саде, а также выезжаем с полным комплектом света, звука и телесуфлером в любой город Сербии по договоренности.
+          </p>
+        </div>
+
+        <!-- Dynamic Editorial Horizontal Service Rows -->
+        <div id="services-list-container" class="border-t border-line divide-y divide-line">
+          <!-- Populated dynamically from siteData.services so Admin CMS can edit them -->
+        </div>
+
+        <!-- Custom Request Banner -->
+        <div class="mt-10 p-6 sm:p-8 bg-surface border border-line flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div>
+            <p class="font-mono text-xs text-muted uppercase">CUSTOM PRODUCTION / СВОЙ ЗАПРОС</p>
+            <h3 data-i18n="srv_custom_box_title" class="mt-1 text-lg sm:text-xl font-normal text-ink">
+              Нужен нестандартный формат, другое количество роликов или съемка в другом городе Сербии?
+            </h3>
+            <p data-i18n="srv_custom_box_desc" class="mt-1 text-xs sm:text-sm text-muted">
+              В форме заявки вы можете выбрать «Свой вариант» и свободно описать задачу своими словами.
+            </p>
+          </div>
+          <button
+            type="button"
+            onclick="selectCustomServiceAndContact()"
+            data-i18n="srv_custom_box_btn"
+            class="touch-target shrink-0 px-6 py-3 bg-ink text-bg text-xs font-mono uppercase tracking-wider hover:opacity-85 transition-opacity cursor-pointer"
+          >
+            Написать свой вариант →
+          </button>
+        </div>
+
+        <!-- Calm Editorial Portfolio Rate Note -->
+        <div class="mt-8 pt-6 border-t border-line flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs sm:text-sm text-muted">
+          <p data-i18n="services_portfolio_note">
+            Примечание по спеццене (-30%): указана стартовая стоимость для проектов в Сербии при условии согласия на публикацию роликов в открытом портфолио студии.
+          </p>
+          <span class="font-mono text-xs text-ink shrink-0">PORTFOLIO RATE (-30%)</span>
+        </div>
+
+        <!-- FAQ / Working Conditions in Serbia -->
+        <div class="mt-24 sm:mt-36 pt-16 border-t border-line grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div class="md:col-span-4">
+            <h2 data-i18n="faq_heading" class="text-xs uppercase tracking-widest text-muted">Частые вопросы и условия</h2>
+          </div>
+
+          <div class="md:col-span-8 divide-y divide-line border-t border-line">
+            <div class="py-8">
+              <h3 data-i18n="faq_q1" class="text-base sm:text-lg font-normal text-ink">
+                Выезжаете ли вы в Нови-Сад и другие города Сербии?
+              </h3>
+              <p data-i18n="faq_a1" class="mt-3 text-sm sm:text-base text-muted leading-relaxed">
+                Да. Белград и Нови-Сад — наши основные локации, а по предварительной договоренности мы выезжаем с мобильным светом, звуком, стабилизатором и двумя камерами в любой город Сербии (Суботица, Ниш, Крагуевац, Златибор, Панчево и др.).
+              </p>
+            </div>
+
+            <div class="py-8">
+              <h3 data-i18n="faq_q2" class="text-base sm:text-lg font-normal text-ink">
+                Я никогда не говорил на камеру. Как проходит запись?
+              </h3>
+              <p data-i18n="faq_a2" class="mt-3 text-sm sm:text-base text-muted leading-relaxed">
+                Большинство наших клиентов — врачи, предприниматели и инженеры, а не профессиональные ведущие. Мы выводим тезисы или полный текст на накамерный телесуфлер прямо перед объективом и помогаем поймать спокойный, естественный темп речи.
+              </p>
+            </div>
+
+            <div class="py-8">
+              <h3 data-i18n="faq_q3" class="text-base sm:text-lg font-normal text-ink">
+                Как происходит оплата в Сербии и на каких языках вы работаете?
+              </h3>
+              <p data-i18n="faq_a3" class="mt-3 text-sm sm:text-base text-muted leading-relaxed">
+                Принимаем оплату на счет (Preduzetnik / D.O.O. в динарах RSD), переводом на карту или наличными в евро и динарах. Снимаем и верстаем субтитры на русском, сербском и английском языках.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 4: FORMAT & EQUIPMENT (ФОРМАТ И ТЕХНИКА)                       -->
+    <!-- =================================================================== -->
+    <div id="page-studio" class="page-view">
+      <section class="max-w-[1320px] mx-auto px-4 sm:px-12 pt-16 sm:pt-24 pb-28 sm:pb-40">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end mb-16 sm:mb-24">
+          <div class="md:col-span-8">
+            <p class="font-mono text-xs text-muted mb-4">SERBIA MOBILE PRODUCTION & STUDIOS</p>
+            <h1 data-i18n="studio_page_title" class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-editorial leading-[1.08] text-ink">
+              Мобильный продакшн по всей <span class="font-serif italic font-normal">Сербии</span> и студии
+            </h1>
+          </div>
+          <div class="md:col-span-4">
+            <p data-i18n="studio_page_lead" class="text-sm sm:text-base text-muted leading-relaxed">
+              Мы не привязываем клиентов к одной декорации. Выезжаем со всем комплектом света и звука на вашу локацию в Белграде, Нови-Саде и других городах Сербии или бронируем интерьерную студию.
+            </p>
+          </div>
+        </div>
+
+        <!-- Two Asymmetric Production Photographs -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-7">
+            <div class="aspect-[16/10] bg-surface overflow-hidden">
+              <img
+                id="cms-studio-img1"
+                loading="lazy"
+                width="1200"
+                height="750"
+                src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=1400&q=85"
+                alt="Выездной комплект света и звука KADAR 48 на локации клиента в Сербии"
+                onerror="this.src='https://placehold.co/1200x750/F1EFEA/6E6D68?text=On-Location+Setup'"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p data-i18n="studio_img1_cap" class="mt-3 text-xs text-muted">Выездной сетап: разворачиваем студийный свет, звук и суфлер в вашем офисе, клинике или на объекте в любом городе Сербии за 15 минут</p>
+          </div>
+
+          <div class="md:col-span-5 md:mt-16">
+            <div class="aspect-[4/5] bg-surface overflow-hidden">
+              <img
+                id="cms-studio-img2"
+                loading="lazy"
+                width="800"
+                height="1000"
+                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=85"
+                alt="Монтаж, цветокоррекция и сведение звука за 48 часов"
+                onerror="this.src='https://placehold.co/800x1000/F1EFEA/6E6D68?text=48h+Post-Production'"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p data-i18n="studio_img2_cap" class="mt-3 text-xs text-muted">Для подкастов подбираем залы в Белграде и Нови-Саде под визуальный стиль вашего проекта</p>
+          </div>
+        </div>
+
+        <!-- 4-Step Production Process -->
+        <div class="mt-28 sm:mt-36 pt-16 border-t border-line">
+          <div class="mb-14">
+            <h2 data-i18n="studio_process_heading" class="text-xs uppercase tracking-widest text-muted">Четыре этапа работы</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div class="border-t border-line pt-6">
+              <span class="font-mono text-xs text-muted">01</span>
+              <h3 data-i18n="step1_title" class="mt-3 text-lg font-normal text-ink">Сценарии и подготовка</h3>
+              <p data-i18n="step1_desc" class="mt-2 text-sm text-muted leading-relaxed">
+                Созваниваемся на 20–30 минут, разбираем вашу нишу, формулируем темы и готовим чистую структуру текста для телесуфлера.
+              </p>
+            </div>
+
+            <div class="border-t border-line pt-6">
+              <span class="font-mono text-xs text-muted">02</span>
+              <h3 data-i18n="step2_title" class="mt-3 text-lg font-normal text-ink">Выезд или запись в студии</h3>
+              <p data-i18n="step2_desc" class="mt-2 text-sm text-muted leading-relaxed">
+                Приезжаем к вам в офис, клинику или квартиру и за 15 минут ставим свет и две камеры — либо встречаемся в заранее подготовленной подкаст-студии.
+              </p>
+            </div>
+
+            <div class="border-t border-line pt-6">
+              <span class="font-mono text-xs text-muted">03</span>
+              <h3 data-i18n="step3_title" class="mt-3 text-lg font-normal text-ink">Монтаж за 48 часов</h3>
+              <p data-i18n="step3_desc" class="mt-2 text-sm text-muted leading-relaxed">
+                Выполняем динамичную склейку с двух камер, цветокоррекцию из профиля S-Log3, чистку и мастеринг голоса, а также верстку субтитров.
+              </p>
+            </div>
+
+            <div class="border-t border-line pt-6">
+              <span class="font-mono text-xs text-muted">04</span>
+              <h3 data-i18n="step4_title" class="mt-3 text-lg font-normal text-ink">Готовый архив</h3>
+              <p data-i18n="step4_desc" class="mt-2 text-sm text-muted leading-relaxed">
+                Ровно через 48 часов вы получаете ссылку на облачную папку с готовыми к публикации вертикальными видео или полным выпуском подкаста.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Mobile Equipment Specification -->
+        <div class="mt-24 sm:mt-36 pt-16 border-t border-line grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div class="md:col-span-4">
+            <h2 data-i18n="studio_tech_heading" class="text-xs uppercase tracking-widest text-muted">Техническая спецификация</h2>
+            <p data-i18n="studio_tech_sub" class="mt-4 text-sm text-muted leading-relaxed">
+              Компактный комплект оборудования, позволяющий быстро развернуть студийную картинку и чистый звук на любой локации.
+            </p>
+          </div>
+          <div class="md:col-span-8 divide-y divide-line border-t border-line text-sm">
+            <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span data-i18n="spec_cam_label" class="sm:col-span-4 text-muted font-medium sm:font-normal">Камеры и оптика</span>
+              <span data-i18n="spec_cam_val" class="sm:col-span-8 font-mono text-xs sm:text-sm text-ink">2× Sony ZV-E10 (4K S-Log3) / Светосильный фикс 33mm f/1.4 + 16-50mm</span>
+            </div>
+            <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span data-i18n="spec_stab_label" class="sm:col-span-4 text-muted font-medium sm:font-normal">Стабилизация и охлаждение</span>
+              <span data-i18n="spec_stab_val" class="sm:col-span-8 font-mono text-xs sm:text-sm text-ink">Трехосевой стабилизатор DJI RS 3 Mini / Активное охлаждение Ulanzi + питание USB-C PD</span>
+            </div>
+            <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span data-i18n="spec_light_label" class="sm:col-span-4 text-muted font-medium sm:font-normal">Мобильный кино-свет</span>
+              <span data-i18n="spec_light_val" class="sm:col-span-8 font-mono text-xs sm:text-sm text-ink">Компактный COB-моноблок 100W с купольным софтбоксом 60 см и сотами / Контровой аккумуляторный свет Ulanzi 40W Pro / 2× RGB-трубки Ulanzi VL119</span>
+            </div>
+            <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span data-i18n="spec_audio_label" class="sm:col-span-4 text-muted font-medium sm:font-normal">Запись звука</span>
+              <span data-i18n="spec_audio_val" class="sm:col-span-8 font-mono text-xs sm:text-sm text-ink">Радиосистема Hollyland Lark M2 (для Reels) / 2× динамических микрофона Fifine K688 + рекордер Zoom PodTrak P4 (для подкастов)</span>
+            </div>
+            <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span data-i18n="spec_prompter_label" class="sm:col-span-4 text-muted font-medium sm:font-normal">Суфлер и контроль</span>
+              <span data-i18n="spec_prompter_val" class="sm:col-span-8 font-mono text-xs sm:text-sm text-ink">Накамерный телесуфлер Ulanzi с Bluetooth-пультом управления</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 5: CONTACT (КОНТАКТЫ)                                          -->
+    <!-- =================================================================== -->
+    <div id="page-contact" class="page-view">
+      <section class="max-w-[1320px] mx-auto px-4 sm:px-12 pt-14 sm:pt-24 pb-24 sm:pb-40">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-12">
+          
+          <!-- Left Column: Direct Channels & Geography -->
+          <div class="md:col-span-5 flex flex-col justify-between space-y-12">
+            <div>
+              <p class="font-mono text-xs text-muted mb-4">CONTACT & BOOKING — SERBIA</p>
+              <h1 data-i18n="contact_page_title" class="fluid-h2 font-normal tracking-editorial text-ink mb-10">
+                Обсудить съемку <span class="font-serif italic font-normal">в Сербии</span>
+              </h1>
+
+              <div class="space-y-4 text-xl sm:text-2xl lg:text-3xl font-normal tracking-editorial">
+                <div>
+                  <a id="cms-contact-tg-link" href="#contact-form" onclick="focusContactInput('Telegram')" class="touch-target hover:text-muted transition-colors">
+                    Telegram — <span id="cms-contact-tg-text">@kadar48_bg</span> ↗
+                  </a>
+                </div>
+                <div>
+                  <a id="cms-contact-wa-link" href="#contact-form" onclick="focusContactInput('WhatsApp')" class="touch-target hover:text-muted transition-colors">
+                    WhatsApp — <span id="cms-contact-wa-text">+381 62 840 48 48</span> ↗
+                  </a>
+                </div>
+                <div>
+                  <a id="cms-contact-email-link" href="mailto:hello@kadar48.rs" class="touch-target hover:text-muted transition-colors">
+                    <span id="cms-contact-email-text">hello@kadar48.rs</span> ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-8 border-t border-line space-y-2 text-sm text-muted">
+              <p class="text-ink font-medium">KADAR 48 Production — Republika Srbija</p>
+              <p id="cms-contact-geo" data-i18n="contact_geo">Работаем в Белграде, Нови-Саде и Суботице, в остальные города выезжаем по договоренности.</p>
+              <p data-i18n="contact_hours">Понедельник – Суббота, 10:00 – 21:00</p>
+              <p class="font-mono text-xs pt-2">Data Protection & Privacy: privacy@kadar48.rs</p>
+            </div>
+          </div>
+
+          <!-- Right Column: 152-FZ + GDPR + ZZPL Compliant Lead Form with City & Custom Service -->
+          <div class="md:col-span-6 md:col-start-7">
+            <p data-i18n="form_intro" class="text-base sm:text-lg text-ink font-normal leading-relaxed mb-8">
+              Оставьте контакт, выберите город и формат (или напишите свой вариант задачи) — мы свяжемся с вами, покажем примеры роликов и согласуем день записи.
+            </p>
+
+            <form id="contact-form" onsubmit="submitMinimalForm(event)" novalidate class="space-y-7">
+              <!-- 1. Name -->
+              <div>
+                <label for="client-name" data-i18n="form_name_label" class="block text-xs text-muted mb-2">Имя *</label>
+                <input
+                  id="client-name"
+                  type="text"
+                  required
+                  autocomplete="name"
+                  class="w-full bg-transparent border-0 border-b border-line focus:border-ink py-2.5 text-base text-ink placeholder-muted/40 focus:outline-none transition-colors"
+                />
+              </div>
+
+              <!-- 2. City in Serbia -->
+              <div>
+                <label for="client-city" data-i18n="form_city_label" class="block text-xs text-muted mb-2">Город съемки *</label>
+                <select
+                  id="client-city"
+                  onchange="toggleCustomCityInput('main')"
+                  class="w-full bg-bg border-0 border-b border-line focus:border-ink py-2.5 text-base text-ink focus:outline-none transition-colors cursor-pointer"
+                >
+                  <option value="Белград" data-i18n="city_bg">Белград</option>
+                  <option value="Нови-Сад" data-i18n="city_ns">Нови-Сад</option>
+                  <option value="Суботица" data-i18n="city_su">Суботица</option>
+                  <option value="custom" data-i18n="city_other">Другой город (по договоренности)</option>
+                </select>
+                <div id="custom-city-wrap-main" class="hidden mt-3 pt-1">
+                  <input
+                    id="client-custom-city"
+                    type="text"
+                    data-i18n-placeholder="ph_custom_city"
+                    placeholder="Напишите город или локацию (по договоренности) *"
+                    class="w-full bg-surface/70 px-3 border border-line focus:border-ink py-2.5 text-base text-ink placeholder-muted/60 focus:outline-none transition-colors"
+                  />
+                </div>
+              </div>
+
+              <!-- 3. Service Format + Custom Option Input -->
+              <div>
+                <div class="flex items-baseline justify-between gap-2 mb-2">
+                  <label for="client-format" data-i18n="form_format_label" class="block text-xs text-muted">Формат и объем работы *</label>
+                  <button
+                    type="button"
+                    onclick="enableCustomFormatMode('main')"
+                    data-i18n="form_custom_toggle"
+                    class="text-xs text-ink underline underline-offset-4 hover:text-muted cursor-pointer"
+                  >
+                    Написать свой вариант
+                  </button>
+                </div>
+                <select
+                  id="client-format"
+                  onchange="toggleCustomFormatInput('main')"
+                  class="w-full bg-bg border-0 border-b border-line focus:border-ink py-2.5 text-base text-ink focus:outline-none transition-colors cursor-pointer"
+                >
+                  <!-- Populated dynamically + Custom Option -->
+                </select>
+
+                <!-- Revealed when "Свой вариант" or "Выезд в другой город" is selected -->
+                <div id="custom-format-wrap-main" class="hidden mt-3 pt-1">
+                  <label for="client-custom-format" data-i18n="form_custom_format_label" class="block text-xs text-ink mb-1.5">
+                    Опишите ваш вариант, задачу или нужное количество видео *
+                  </label>
+                  <textarea
+                    id="client-custom-format"
+                    rows="2"
+                    data-i18n-placeholder="ph_custom_format"
+                    placeholder="Например: нужно 5 Reels и 1 горизонтальное видео для сайта в Нови-Саде..."
+                    class="w-full bg-surface/70 px-3 border border-line focus:border-ink py-2.5 text-base text-ink placeholder-muted/60 focus:outline-none transition-colors resize-none"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- 4. Contact -->
+              <div>
+                <label for="client-contact" data-i18n="form_contact_label" class="block text-xs text-muted mb-2">Telegram, WhatsApp или телефон *</label>
+                <input
+                  id="client-contact"
+                  type="text"
+                  required
+                  data-i18n-placeholder="ph_contact"
+                  placeholder="@username / +381..."
+                  class="w-full bg-transparent border-0 border-b border-line focus:border-ink py-2.5 text-base text-ink placeholder-muted/40 focus:outline-none transition-colors"
+                />
+              </div>
+
+              <!-- 5. Additional Note -->
+              <div>
+                <label for="client-note" data-i18n="form_note_label" class="block text-xs text-muted mb-2">Комментарий или ссылка на ваш проект (необязательно)</label>
+                <textarea
+                  id="client-note"
+                  rows="2"
+                  class="w-full bg-transparent border-0 border-b border-line focus:border-ink py-2.5 text-base text-ink placeholder-muted/40 focus:outline-none transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Mandatory Unchecked Legal Checkboxes (152-FZ RF + GDPR + ZZPL) -->
+              <div class="pt-2 space-y-4 border-t border-line">
+                <label for="consent-pd-main" class="flex items-start gap-3.5 cursor-pointer select-none py-1">
+                  <input id="consent-pd-main" type="checkbox" class="legal-checkbox" required />
+                  <span class="text-xs text-muted leading-relaxed">
+                    <span data-i18n="chk_pd_prefix">Я даю</span>
+                    <button type="button" onclick="navigateTo('consent-doc')" data-i18n="chk_pd_link1" class="text-ink underline underline-offset-2 hover:text-muted cursor-pointer">Согласие на обработку персональных данных</button>
+                    <span data-i18n="chk_pd_mid">и соглашаюсь с</span>
+                    <button type="button" onclick="navigateTo('privacy')" data-i18n="chk_pd_link2" class="text-ink underline underline-offset-2 hover:text-muted cursor-pointer">Политикой конфиденциальности</button>
+                    <span class="font-mono text-[11px]">(152-ФЗ РФ / GDPR / ZZPL) *</span>
+                  </span>
+                </label>
+
+                <label for="consent-msg-main" class="flex items-start gap-3.5 cursor-pointer select-none py-1">
+                  <input id="consent-msg-main" type="checkbox" class="legal-checkbox" required />
+                  <span data-i18n="chk_msg_label" class="text-xs text-muted leading-relaxed">
+                    Согласен на получение ответа и расчета сметы через указанный мессенджер (Telegram / WhatsApp), включая трансграничную передачу сообщения (ст. 12 152-ФЗ РФ / ст. 49 GDPR) *
+                  </span>
+                </label>
+
+                <p id="contact-form-error" data-i18n="form_error_msg" class="hidden text-xs text-[#C83E2B] font-normal pt-1">
+                  Пожалуйста, заполните обязательные поля и отметьте оба согласия для отправки формы.
+                </p>
+              </div>
+
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  data-i18n="form_submit"
+                  class="w-full sm:w-auto touch-target justify-center px-8 py-4 bg-ink text-bg text-sm font-normal hover:opacity-85 transition-opacity cursor-pointer"
+                >
+                  Отправить заявку
+                </button>
+              </div>
+            </form>
+
+            <!-- Quiet Confirmation Message -->
+            <div id="form-confirmation" class="hidden pt-6 space-y-4 border-t border-line" role="status" aria-live="polite">
+              <p data-i18n="form_thanks_title" class="text-lg text-ink font-normal">Спасибо. Заявка обработана.</p>
+              <p id="form-delivery-status" class="text-sm text-muted leading-relaxed">
+              <button
+                type="button"
+                onclick="resetMinimalForm()"
+                data-i18n="form_reset_btn"
+                class="touch-target text-xs text-ink border-b border-ink pb-0.5 hover:text-muted cursor-pointer"
+              >
+                Отправить еще одно сообщение
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 6: PRIVACY & COOKIE POLICY (GDPR + ZZPL SERBIA + 152-FZ RF)    -->
+    <!-- =================================================================== -->
+    <div id="page-privacy" class="page-view">
+      <section class="max-w-[1320px] mx-auto px-4 sm:px-12 pt-14 sm:pt-24 pb-24 sm:pb-40">
+        <div class="pb-8 border-b border-line flex items-center justify-between mb-10">
+          <button
+            type="button"
+            onclick="navigateTo('contact')"
+            data-i18n="legal_back_btn"
+            class="touch-target text-xs sm:text-sm text-muted hover:text-ink transition-colors cursor-pointer"
+          >
+            ← Вернуться к форме заявки
+          </button>
+          <span class="font-mono text-xs text-muted">EU GDPR · RS ZZPL · RU 152-ФЗ</span>
+        </div>
+
+        <div class="max-w-3xl mb-14 sm:mb-20">
+          <p class="font-mono text-xs text-muted mb-4">LEGAL & PRIVACY COMPLIANCE / EU GDPR · RS ZZPL · RU 152-ФЗ</p>
+          <h1 data-i18n="privacy_page_title" class="fluid-h2 font-normal tracking-editorial text-ink">
+            Политика конфиденциальности и <span class="font-serif italic font-normal">файлов Cookie</span>
+          </h1>
+          <p data-i18n="privacy_page_sub" class="mt-6 text-sm sm:text-base text-muted leading-relaxed">
+            Настоящая Политика разработана в соответствии с Общим регламентом по защите данных ЕС (Regulation (EU) 2016/679 — GDPR), Законом о защите персональных данных Республики Сербия («Сл. гласник РС», бр. 87/2018 — ZZPL) и Федеральным законом РФ от 27.07.2006 № 152-ФЗ «О персональных данных».
+          </p>
+        </div>
+
+        <div class="border-t border-line divide-y divide-line text-sm sm:text-base">
+          <!-- 01 Data Controller -->
+          <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="md:col-span-4">
+              <span class="font-mono text-xs text-muted">01</span>
+              <h2 data-i18n="priv_s1_title" class="mt-1 text-lg font-normal text-ink">Оператор персональных данных (Data Controller)</h2>
+            </div>
+            <div data-i18n="priv_s1_body" class="md:col-span-8 space-y-3 text-muted leading-relaxed">
+              <p class="text-ink font-medium">KADAR 48 Production (PR Studio za kinematografsku i video produkciju KADAR 48 Beograd)</p>
+              <p>Юридический адрес: Vračar, 11000 Beograd, Republika Srbija.</p>
+              <p class="font-mono text-xs text-ink">PIB: 114289402 · Matični broj: 67419280 · E-mail по вопросам защиты данных (DPO): privacy@kadar48.rs</p>
+              <p>Оператор самостоятельно определяет цели и способы обработки персональных данных посетителей сайта и заказчиков услуг видеопродакшна.</p>
+            </div>
+          </div>
+
+          <!-- 02 Legal Bases -->
+          <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="md:col-span-4">
+              <span class="font-mono text-xs text-muted">02</span>
+              <h2 data-i18n="priv_s2_title" class="mt-1 text-lg font-normal text-ink">Правовые основания обработки</h2>
+            </div>
+            <div data-i18n="priv_s2_body" class="md:col-span-8 space-y-3 text-muted leading-relaxed">
+              <p>• <strong class="text-ink font-normal">Европейский союз (GDPR, ст. 6(1)(a), 6(1)(b)):</strong> явное, свободно выраженное согласие субъекта данных при отправке формы заявки и преддоговорные отношения по расчету сметы съемки.</p>
+              <p>• <strong class="text-ink font-normal">Республика Сербия (ZZPL, чл. 12 и чл. 15):</strong> обработка с согласия физического лица или для исполнения договора на территории Сербии с соблюдением прав, контролируемых Уполномоченным (Повереник за информације од јавног значаја и заштиту података о личности).</p>
+              <p>• <strong class="text-ink font-normal">Российская Федерация (152-ФЗ «О персональных данных», ст. 6, ст. 9, ст. 10.1, ст. 12):</strong> обработка на основании отдельного непредзаполненного согласия пользователя без распространения данных неограниченному кругу лиц.</p>
+            </div>
+          </div>
+
+          <!-- 03 Data Collected & Purpose -->
+          <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="md:col-span-4">
+              <span class="font-mono text-xs text-muted">03</span>
+              <h2 data-i18n="priv_s3_title" class="mt-1 text-lg font-normal text-ink">Какие данные собираются и цели обработки</h2>
+            </div>
+            <div data-i18n="priv_s3_body" class="md:col-span-8 space-y-3 text-muted leading-relaxed">
+              <p>Мы соблюдаем принцип минимизации данных (Data Minimization) и обрабатываем только те сведения, которые вы вводите добровольно:</p>
+              <ul class="list-disc pl-5 space-y-1.5">
+                <li>Имя (или псевдоним) для обращения к вам;</li>
+                <li>Контактный идентификатор (имя пользователя Telegram, номер WhatsApp, телефон или адрес электронной почты);</li>
+                <li>Выбранный город, формат съемки и комментарий к задаче;</li>
+                <li>Техническая запись о факте и времени предоставления согласия на обработку ПДн и настройках Cookie в <code class="font-mono text-xs">localStorage</code> вашего браузера.</li>
+              </ul>
+              <p>Цели обработки строго ограничены: обратная связь по вашему запросу, расчет стоимости видеосъемки, согласование даты записи и заключение договора.</p>
+            </div>
+          </div>
+
+          <!-- 04 Rules for Cross-Border & Messengers -->
+          <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="md:col-span-4">
+              <span class="font-mono text-xs text-muted">04</span>
+              <h2 data-i18n="priv_s4_title" class="mt-1 text-lg font-normal text-ink">Трансграничная передача и связь через мессенджеры</h2>
+            </div>
+            <div data-i18n="priv_s4_body" class="md:col-span-8 space-y-3 text-muted leading-relaxed">
+              <p>1. <strong class="text-ink font-normal">Отсутствие скрытых трекеров по умолчанию:</strong> на сайте не активируются сторонние рекламные и аналитические скрипты (Google Analytics, Meta Pixel и др.) без вашего предварительного явного согласия в окне управления Cookie.</p>
+              <p>2. <strong class="text-ink font-normal">Локализация и трансграничная обработка (ст. 12 152-ФЗ / ст. 49 GDPR):</strong> поскольку студия KADAR 48 физически расположена и оказывает услуги в Республике Сербия (государстве — участнике Конвенции Совета Европы № 108, обеспечивающем адекватную защиту прав субъектов ПДн), отправка заявки означает ваше информированное согласие на обработку обращения оператором в Республике Сербия.</p>
+              <p>3. <strong class="text-ink font-normal">Связь через мессенджеры:</strong> при указании контакта в Telegram или WhatsApp связь осуществляется только при наличии вашей отдельной отметки о согласии на получение ответа через выбранный мессенджер.</p>
+            </div>
+          </div>
+
+          <!-- 05 Cookie Policy Table & Instant Control -->
+          <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="md:col-span-4">
+              <span class="font-mono text-xs text-muted">05</span>
+              <h2 data-i18n="priv_s5_title" class="mt-1 text-lg font-normal text-ink">Политика файлов Cookie (ePrivacy & GDPR)</h2>
+            </div>
+            <div class="md:col-span-8 space-y-6">
+              <p data-i18n="priv_s5_intro" class="text-muted leading-relaxed">
+                Мы не используем принудительные Cookie-стены (Cookie Walls). Вы можете пользоваться всеми разделами сайта при полном отказе от необязательных файлов Cookie.
+              </p>
+
+              <!-- Responsive Stackable Cookie Audit Table -->
+              <div data-i18n="priv_s5_table" class="border border-line divide-y divide-line text-xs sm:text-sm">
+                <div class="p-4 bg-surface/60 grid grid-cols-1 sm:grid-cols-12 gap-2 font-medium text-ink">
+                  <div class="sm:col-span-4">Категория</div>
+                  <div class="sm:col-span-5">Назначение и хранение</div>
+                  <div class="sm:col-span-3 sm:text-right">Статус по умолчанию</div>
+                </div>
+                <div class="p-4 grid grid-cols-1 sm:grid-cols-12 gap-2 items-baseline">
+                  <div class="sm:col-span-4 font-medium text-ink">1. Строго необходимые</div>
+                  <div class="sm:col-span-5 text-muted">Сохранение выбранного языка (<code class="font-mono">kadar48_lang</code>) и вашего решения по баннеру Cookie (<code class="font-mono">kadar48_cookie_consent</code>) в течение 180 дней.</div>
+                  <div class="sm:col-span-3 sm:text-right font-mono text-xs text-ink">Всегда активны</div>
+                </div>
+                <div class="p-4 grid grid-cols-1 sm:grid-cols-12 gap-2 items-baseline">
+                  <div class="sm:col-span-4 font-medium text-ink">2. Аналитические</div>
+                  <div class="sm:col-span-5 text-muted">Анонимизированный подсчет посещаемости страниц без передачи IP-адресов рекламным сетям.</div>
+                  <div class="sm:col-span-3 sm:text-right font-mono text-xs text-muted">Отключены (Opt-in)</div>
+                </div>
+                <div class="p-4 grid grid-cols-1 sm:grid-cols-12 gap-2 items-baseline">
+                  <div class="sm:col-span-4 font-medium text-ink">3. Маркетинговые и медиа</div>
+                  <div class="sm:col-span-5 text-muted">Встраиваемые внешние видеоплееры и пиксели ретаргетинга.</div>
+                  <div class="sm:col-span-3 sm:text-right font-mono text-xs text-muted">Отключены (Opt-in)</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-4 pt-2">
+                <button
+                  type="button"
+                  onclick="openCookieModal()"
+                  data-i18n="priv_btn_open_cookies"
+                  class="touch-target px-5 py-2.5 border border-ink text-xs font-mono uppercase tracking-wider text-ink hover:bg-ink hover:text-bg transition-colors cursor-pointer"
+                >
+                  Изменить настройки Cookie прямо сейчас
+                </button>
+                <button
+                  type="button"
+                  onclick="navigateTo('consent-doc')"
+                  data-i18n="priv_btn_to_consent"
+                  class="touch-target text-xs text-ink underline underline-offset-4 hover:text-muted cursor-pointer"
+                >
+                  Открыть текст Согласия на обработку ПДн →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06 User Rights -->
+          <div class="py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="md:col-span-4">
+              <span class="font-mono text-xs text-muted">06</span>
+              <h2 data-i18n="priv_s6_title" class="mt-1 text-lg font-normal text-ink">Ваши права и отзыв согласия в 1 клик</h2>
+            </div>
+            <div class="md:col-span-8 space-y-3 text-muted leading-relaxed">
+              <div data-i18n="priv_s6_body" class="space-y-3">
+                <p>В соответствии со ст. 15–22 GDPR, Законом ZZPL Сербии и ст. 14 152-ФЗ РФ вы имеете право:</p>
+                <ul class="list-disc pl-5 space-y-1.5">
+                  <li>Запросить копию ваших персональных данных, обрабатываемых студией, или потребовать их исправления;</li>
+                  <li>Потребовать полного удаления данных («право на забвение» / Right to Erasure) в течение 72 часов с момента обращения;</li>
+                  <li>Отозвать согласие на обработку персональных данных, отправив письмо в свободной форме на <a href="mailto:privacy@kadar48.rs" class="text-ink underline">privacy@kadar48.rs</a>, или сбросить настройки Cookie кнопкой ниже.</li>
+                </ul>
+              </div>
+              <div class="pt-3">
+                <button
+                  type="button"
+                  onclick="revokeAllConsentNow()"
+                  data-i18n="priv_btn_revoke"
+                  class="touch-target px-5 py-2.5 border border-line text-xs font-mono text-ink hover:border-ink transition-colors cursor-pointer"
+                >
+                  Отозвать и сбросить все Cookie-согласия в 1 клик
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 7: EXPLICIT PERSONAL DATA CONSENT DOCUMENT (152-ФЗ & GDPR)     -->
+    <!-- =================================================================== -->
+    <div id="page-consent-doc" class="page-view">
+      <section class="max-w-[1320px] mx-auto px-4 sm:px-12 pt-14 sm:pt-24 pb-24 sm:pb-40">
+        <div class="pb-8 border-b border-line flex items-center justify-between">
+          <button
+            type="button"
+            onclick="navigateTo('contact')"
+            data-i18n="legal_back_btn"
+            class="touch-target text-xs sm:text-sm text-muted hover:text-ink transition-colors cursor-pointer"
+          >
+            ← Вернуться к форме заявки
+          </button>
+          <span class="font-mono text-xs text-muted">DOC / 152-ФЗ РФ · GDPR ART. 7 · RS ZZPL</span>
+        </div>
+
+        <div class="max-w-3xl mt-12 space-y-8 text-sm sm:text-base text-muted leading-relaxed">
+          <h1 data-i18n="consent_doc_title" class="fluid-h2 font-normal tracking-editorial text-ink">
+            Согласие на обработку <span class="font-serif italic font-normal">персональных данных</span>
+          </h1>
+
+          <p data-i18n="consent_doc_intro" class="text-ink">
+            Физическое лицо (пользователь веб-сайта <span class="font-mono">kadar48.rs</span>), заполняя веб-форму заявки и проставляя отметку (галочку) в поле согласия, действуя свободно, своей волей и в своем интересе, а также подтверждая свою дееспособность, предоставляет свое конкретное, предметное, информированное и однозначное согласие Оператору:
+          </p>
+
+          <div data-i18n="consent_doc_operator" class="p-6 bg-surface border border-line space-y-2 text-xs sm:text-sm text-ink">
+            <p class="font-medium">Оператор: KADAR 48 Production (Beograd, Republika Srbija, PIB 114289402)</p>
+            <p>Контактный адрес для обращений субъектов персональных данных: <span class="font-mono">privacy@kadar48.rs</span></p>
+          </div>
+
+          <div data-i18n="consent_doc_s1" class="space-y-4">
+            <h2 class="text-lg font-normal text-ink">1. Перечень обрабатываемых персональных данных</h2>
+            <p>Согласие дается на обработку следующих категорий персональных данных (не являющихся специальными или биометрическими):</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>Имя (или имя/название проекта, указанное пользователем);</li>
+              <li>Номер телефона и/или идентификатор в мессенджере (Telegram / WhatsApp) и/или адрес электронной почты;</li>
+              <li>Сведения о выбранном городе, формате видеосъемки и описание задачи;</li>
+              <li>Технические метаданные отправки формы (дата, время, выбранный язык интерфейса).</li>
+            </ul>
+          </div>
+
+          <div data-i18n="consent_doc_s2" class="space-y-4">
+            <h2 class="text-lg font-normal text-ink">2. Цели обработки персональных данных</h2>
+            <p>Персональные данные обрабатываются исключительно в целях:</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>Связи с пользователем для консультации по услугам видеосъемки и монтажа;</li>
+              <li>Направления расчета стоимости (сметы), примеров работ и согласования даты съемки;</li>
+              <li>Подготовки и заключения договора на оказание услуг видеопродакшна.</li>
+            </ul>
+          </div>
+
+          <div data-i18n="consent_doc_s3" class="space-y-4">
+            <h2 class="text-lg font-normal text-ink">3. Перечень действий и трансграничная передача (ст. 12 152-ФЗ РФ / GDPR)</h2>
+            <p>
+              В ходе обработки с персональными данными будут совершаться следующие действия: сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, блокирование, удаление и уничтожение.
+            </p>
+            <p>
+              Пользователь проинформирован и соглашается с тем, что Оператор зарегистрирован и осуществляет деятельность на территории Республики Сербия (государства — участника Конвенции Совета Европы о защите физических лиц при автоматизированной обработке персональных данных). При выборе связи через мессенджеры Telegram или WhatsApp пользователь дает отдельное согласие на получение ответа через соответствующий мессенджер.
+            </p>
+          </div>
+
+          <div data-i18n="consent_doc_s4" class="space-y-4">
+            <h2 class="text-lg font-normal text-ink">4. Срок действия согласия и порядок его отзыва</h2>
+            <p>
+              Настоящее согласие действует в течение 12 (двенадцати) месяцев с момента отправки заявки либо до момента достижения цели обработки или отзыва согласия субъектом персональных данных.
+            </p>
+            <p>
+              Согласие может быть отозвано в любой момент путем направления электронного письма на адрес <a href="mailto:privacy@kadar48.rs" class="text-ink underline">privacy@kadar48.rs</a> с пометкой «Отзыв согласия на обработку ПДн». В случае отзыва согласия Оператор прекращает обработку и уничтожает персональные данные в срок, не превышающий 3 (трех) рабочих дней.
+            </p>
+          </div>
+
+          <div class="pt-6 border-t border-line flex flex-wrap gap-6">
+            <button
+              type="button"
+              onclick="navigateTo('privacy')"
+              data-i18n="consent_to_priv_btn"
+              class="touch-target text-sm text-ink border-b border-ink pb-0.5 hover:text-muted cursor-pointer"
+            >
+              Перейти к Политике конфиденциальности и Cookie →
+            </button>
+            <button
+              type="button"
+              onclick="navigateTo('contact')"
+              data-i18n="consent_to_contact_btn"
+              class="touch-target text-sm text-muted hover:text-ink cursor-pointer"
+            >
+              Вернуться в Контакты →
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- QUICK REQUEST MODAL (WITH CUSTOM SERVICE & CITY + 152-FZ / GDPR)       -->
+  <!-- ===================================================================== -->
+  <div id="quick-request-modal" class="hidden fixed inset-0 z-50 bg-ink/40 backdrop-blur-[2px] flex items-center justify-center p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="quick-modal-title">
+    <div class="bg-bg border border-line max-w-lg w-full p-6 sm:p-10 relative my-8">
+      <div class="flex items-start justify-between gap-4 pb-5 border-b border-line">
+        <div>
+          <p class="font-mono text-[11px] text-muted uppercase">KADAR 48 — SRBIJA</p>
+          <h2 id="quick-modal-title" data-i18n="modal_req_title" class="mt-1 text-xl sm:text-2xl font-normal tracking-editorial text-ink">Быстрая заявка на съемку</h2>
+        </div>
+        <button
+          type="button"
+          onclick="closeQuickModal()"
+          aria-label="Закрыть окно"
+          class="touch-target px-2 text-muted hover:text-ink font-mono text-base cursor-pointer"
+        >
+          ✕
+        </button>
+      </div>
+
+      <form id="quick-modal-form" onsubmit="submitQuickModalForm(event)" novalidate class="mt-6 space-y-5">
+        <div>
+          <label for="modal-client-name" data-i18n="form_name_label" class="block text-xs text-muted mb-1.5">Имя *</label>
+          <input
+            id="modal-client-name"
+            type="text"
+            required
+            class="w-full bg-transparent border-0 border-b border-line focus:border-ink py-2 text-base text-ink focus:outline-none"
+          />
+        </div>
+
+        <div>
+          <label for="modal-client-city" data-i18n="form_city_label" class="block text-xs text-muted mb-1.5">Город съемки *</label>
+          <select
+            id="modal-client-city"
+            onchange="toggleCustomCityInput('modal')"
+            class="w-full bg-bg border-0 border-b border-line focus:border-ink py-2 text-base text-ink focus:outline-none cursor-pointer"
+          >
+            <option value="Белград" data-i18n="city_bg">Белград</option>
+            <option value="Нови-Сад" data-i18n="city_ns">Нови-Сад</option>
+            <option value="Суботица" data-i18n="city_su">Суботица</option>
+            <option value="custom" data-i18n="city_other">Другой город (по договоренности)</option>
+          </select>
+          <div id="custom-city-wrap-modal" class="hidden mt-2.5">
+            <input
+              id="modal-client-custom-city"
+              type="text"
+              data-i18n-placeholder="ph_custom_city"
+              placeholder="Напишите город (по договоренности) *"
+              class="w-full bg-surface/70 px-3 border border-line focus:border-ink py-2 text-base text-ink focus:outline-none"
+            />
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-baseline justify-between gap-2 mb-1.5">
+            <label for="modal-client-format" data-i18n="form_format_label" class="block text-xs text-muted">Формат и объем работы *</label>
+            <button
+              type="button"
+              onclick="enableCustomFormatMode('modal')"
+              data-i18n="form_custom_toggle"
+              class="text-xs text-ink underline underline-offset-4 hover:text-muted cursor-pointer"
+            >
+              Написать свой вариант
+            </button>
+          </div>
+          <select
+            id="modal-client-format"
+            onchange="toggleCustomFormatInput('modal')"
+            class="w-full bg-bg border-0 border-b border-line focus:border-ink py-2 text-base text-ink focus:outline-none cursor-pointer"
+          >
+            <!-- Populated dynamically -->
+          </select>
+          <div id="custom-format-wrap-modal" class="hidden mt-2.5">
+            <textarea
+              id="modal-client-custom-format"
+              rows="2"
+              data-i18n-placeholder="ph_custom_format"
+              placeholder="Опишите ваш вариант задачи или нужное количество видео *"
+              class="w-full bg-surface/70 px-3 border border-line focus:border-ink py-2 text-base text-ink focus:outline-none resize-none"
+            ></textarea>
+          </div>
+        </div>
+
+        <div>
+          <label for="modal-client-contact" data-i18n="form_contact_label" class="block text-xs text-muted mb-1.5">Telegram, WhatsApp или телефон *</label>
+          <input
+            id="modal-client-contact"
+            type="text"
+            required
+            data-i18n-placeholder="ph_contact"
+            placeholder="@username / +381..."
+            class="w-full bg-transparent border-0 border-b border-line focus:border-ink py-2 text-base text-ink focus:outline-none"
+          />
+        </div>
+
+        <div class="pt-2 space-y-3 border-t border-line">
+          <label for="consent-pd-modal" class="flex items-start gap-3 cursor-pointer select-none">
+            <input id="consent-pd-modal" type="checkbox" class="legal-checkbox" required />
+            <span class="text-xs text-muted leading-relaxed">
+              <span data-i18n="chk_pd_prefix">Я даю</span>
+              <button type="button" onclick="closeQuickModal(); navigateTo('consent-doc');" data-i18n="chk_pd_link1" class="text-ink underline underline-offset-2 hover:text-muted cursor-pointer">Согласие на обработку персональных данных</button>
+              <span data-i18n="chk_pd_mid">и соглашаюсь с</span>
+              <button type="button" onclick="closeQuickModal(); navigateTo('privacy');" data-i18n="chk_pd_link2" class="text-ink underline underline-offset-2 hover:text-muted cursor-pointer">Политикой конфиденциальности</button>
+              <span class="font-mono text-[11px]">(152-ФЗ РФ / GDPR / ZZPL) *</span>
+            </span>
+          </label>
+
+          <label for="consent-msg-modal" class="flex items-start gap-3 cursor-pointer select-none">
+            <input id="consent-msg-modal" type="checkbox" class="legal-checkbox" required />
+            <span data-i18n="chk_msg_label" class="text-xs text-muted leading-relaxed">
+              Согласен на получение ответа и расчета сметы через указанный мессенджер (Telegram / WhatsApp), включая трансграничную передачу сообщения *
+            </span>
+          </label>
+
+          <p id="modal-form-error" data-i18n="form_error_msg" class="hidden text-xs text-[#C83E2B]">
+            Пожалуйста, заполните обязательные поля и отметьте оба согласия для отправки формы.
+          </p>
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+          <button
+            type="submit"
+            data-i18n="form_submit"
+            class="w-full touch-target justify-center px-6 py-3.5 bg-ink text-bg text-sm font-normal hover:opacity-85 transition-opacity cursor-pointer"
+          >
+            Отправить заявку
+          </button>
+        </div>
+      </form>
+
+      <div id="quick-modal-success" class="hidden pt-6 space-y-4">
+        <p data-i18n="form_thanks_title" class="text-base text-ink font-normal">Спасибо. Заявка и согласие зафиксированы.</p>
+        <p id="quick-modal-delivery-status" class="text-xs text-muted leading-relaxed" role="status" aria-live="polite">
+        <button
+          type="button"
+          onclick="closeQuickModal()"
+          data-i18n="modal_close_btn"
+          class="touch-target px-5 py-2.5 border border-ink text-xs font-mono uppercase text-ink cursor-pointer"
+        >
+          Закрыть
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PERSISTENT MINIMALIST FOOTER (WITH LEGAL & STEALTH ADMIN TRIGGER)      -->
+  <!-- ===================================================================== -->
+  <footer class="border-t border-line bg-bg">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-12 py-10 space-y-8 text-xs text-muted">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="flex items-baseline gap-3">
+          <span class="text-ink font-medium">KADAR 48</span>
+          <span data-i18n="footer_cities">Белград · Нови-Сад · Суботица (другие города — по договоренности)</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <button type="button" onclick="navigateTo('home')" data-i18n="nav_home" class="touch-target hover:text-ink transition-colors cursor-pointer">Главная</button>
+          <button type="button" onclick="navigateTo('works')" data-i18n="nav_work" class="touch-target hover:text-ink transition-colors cursor-pointer">Работы</button>
+          <button type="button" onclick="navigateTo('services')" data-i18n="nav_services" class="touch-target hover:text-ink transition-colors cursor-pointer">Услуги и цены</button>
+          <button type="button" onclick="navigateTo('studio')" data-i18n="nav_studio" class="touch-target hover:text-ink transition-colors cursor-pointer">Формат и техника</button>
+          <button type="button" onclick="navigateTo('contact')" data-i18n="nav_contact" class="touch-target hover:text-ink transition-colors cursor-pointer">Контакты</button>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-line flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 text-[11px]">
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <button type="button" onclick="navigateTo('privacy')" data-i18n="footer_privacy_link" class="touch-target text-ink underline underline-offset-4 hover:text-muted cursor-pointer">
+            Политика конфиденциальности и Cookie (GDPR / ZZPL / 152-ФЗ)
+          </button>
+          <button type="button" onclick="navigateTo('consent-doc')" data-i18n="footer_consent_link" class="touch-target hover:text-ink underline underline-offset-4 cursor-pointer">
+            Согласие на обработку ПДн
+          </button>
+          <button type="button" onclick="openCookieModal()" class="touch-target flex items-center gap-1.5 hover:text-ink cursor-pointer">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#C83E2B]"></span>
+            <span data-i18n="footer_cookie_btn" class="underline underline-offset-4">Настройки Cookie</span>
+            <span id="footer-cookie-status" class="font-mono text-[10px] text-muted">[Только технические]</span>
+          </button>
+        </div>
+
+        <!-- Triple-click stealth trigger for Admin Panel -->
+        <div
+          id="stealth-copyright"
+          onclick="handleCopyrightClick()"
+          class="font-mono text-muted select-none cursor-default"
+        >
+          © 2026 KADAR 48 · SRBIJA · PIB 114289402
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- HONEST GDPR / ZZPL / 152-FZ COOKIE BANNER & GRANULAR MODAL             -->
+  <!-- ===================================================================== -->
+  <div id="cookie-banner" class="hidden fixed bottom-0 inset-x-0 z-40 bg-bg/98 backdrop-blur-md border-t border-line shadow-sm">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-12 py-4 sm:py-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div class="text-xs text-muted leading-relaxed max-w-3xl">
+        <span data-i18n="cookie_banner_text">Мы используем только технические файлы Cookie для запоминания языка и вашего выбора конфиденциальности. Аналитические и маркетинговые скрипты отключены по умолчанию и активируются только с вашего согласия. Подробнее в</span>
+        <button type="button" onclick="navigateTo('privacy')" data-i18n="cookie_banner_link" class="text-ink underline underline-offset-2 hover:text-muted cursor-pointer ml-1">Политике конфиденциальности</button>.
+      </div>
+      <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto shrink-0">
+        <button
+          type="button"
+          onclick="saveCookieChoice('necessary')"
+          data-i18n="cookie_btn_reject"
+          class="flex-1 sm:flex-initial touch-target justify-center px-4 py-2 border border-ink text-xs font-mono uppercase tracking-wider text-ink hover:bg-surface transition-colors cursor-pointer"
+        >
+          Отклонить все
+        </button>
+        <button
+          type="button"
+          onclick="openCookieModal()"
+          data-i18n="cookie_btn_custom"
+          class="flex-1 sm:flex-initial touch-target justify-center px-4 py-2 border border-ink text-xs font-mono uppercase tracking-wider text-ink hover:bg-surface transition-colors cursor-pointer"
+        >
+          Настроить
+        </button>
+        <button
+          type="button"
+          onclick="saveCookieChoice('all')"
+          data-i18n="cookie_btn_accept"
+          class="flex-1 sm:flex-initial touch-target justify-center px-4 py-2 border border-ink bg-ink text-bg text-xs font-mono uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer"
+        >
+          Принять все
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookie-modal" class="hidden fixed inset-0 z-50 bg-ink/40 backdrop-blur-[2px] flex items-center justify-center p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="bg-bg border border-line max-w-lg w-full p-6 sm:p-8 space-y-6 my-8">
+      <div class="flex items-start justify-between gap-4 pb-4 border-b border-line">
+        <div>
+          <p class="font-mono text-[11px] text-muted uppercase">GDPR · ePRIVACY · ZZPL · 152-ФЗ</p>
+          <h2 id="cookie-modal-title" data-i18n="cookie_modal_heading" class="mt-1 text-xl font-normal tracking-editorial text-ink">Настройки файлов Cookie</h2>
+        </div>
+        <button type="button" onclick="closeCookieModal()" class="touch-target px-2 text-muted hover:text-ink font-mono cursor-pointer">✕</button>
+      </div>
+
+      <div class="space-y-4 divide-y divide-line text-xs">
+        <div class="pt-2 flex items-start justify-between gap-4">
+          <div>
+            <p data-i18n="cookie_cat1_title" class="font-medium text-ink">1. Строго необходимые (Технические)</p>
+            <p data-i18n="cookie_cat1_desc" class="text-muted mt-1 leading-relaxed">Необходимы для работы навигации, переключения языка (RU/SR/EN) и сохранения вашего выбора конфиденциальности в localStorage. Не передают данные третьим лицам.</p>
+          </div>
+          <span class="font-mono text-[11px] text-ink shrink-0 uppercase">Always On</span>
+        </div>
+
+        <div class="pt-4 flex items-start justify-between gap-4">
+          <div>
+            <p data-i18n="cookie_cat2_title" class="font-medium text-ink">2. Аналитика и статистика</p>
+            <p data-i18n="cookie_cat2_desc" class="text-muted mt-1 leading-relaxed">Помогают понимать, какие кейсы и разделы сайта просматривают чаще всего (по умолчанию отключены).</p>
+          </div>
+          <input id="chk-cookie-analytics" type="checkbox" class="legal-checkbox" />
+        </div>
+
+        <div class="pt-4 flex items-start justify-between gap-4">
+          <div>
+            <p data-i18n="cookie_cat3_title" class="font-medium text-ink">3. Маркетинг и внешние медиа</p>
+            <p data-i18n="cookie_cat3_desc" class="text-muted mt-1 leading-relaxed">Используются для внешних видеоплееров и оценки эффективности рекламных кампаний (по умолчанию отключены).</p>
+          </div>
+          <input id="chk-cookie-marketing" type="checkbox" class="legal-checkbox" />
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-line flex flex-wrap items-center justify-end gap-3">
+        <button
+          type="button"
+          onclick="saveCookieChoice('necessary')"
+          data-i18n="cookie_btn_reject"
+          class="touch-target px-4 py-2 border border-line text-xs font-mono uppercase tracking-wider text-muted hover:text-ink hover:border-ink transition-colors cursor-pointer"
+        >
+          Отклонить все
+        </button>
+        <button
+          type="button"
+          onclick="saveGranularCookies()"
+          data-i18n="cookie_save_custom"
+          class="touch-target px-5 py-2 border border-ink bg-ink text-bg text-xs font-mono uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer"
+        >
+          Сохранить выбор
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PROTECTED ADMIN PANEL (CMS + CRM + TELEGRAM + STATIC HTML EXPORT)     -->
+  <!-- Hidden by default; opened via Ctrl + Shift + A or 3x copyright click  -->
+  <!-- ===================================================================== -->
+  <div id="admin-modal" class="hidden fixed inset-0 z-50 bg-ink/60 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 overflow-y-auto" role="dialog" aria-modal="true">
+    
+    <!-- 1. PASSWORD GATE -->
+    <div id="admin-login-box" class="bg-bg border border-line max-w-md w-full p-6 sm:p-8 space-y-6 my-auto shadow-xl">
+      <div class="flex items-start justify-between gap-4 pb-4 border-b border-line">
+        <div>
+          <p class="font-mono text-[11px] text-muted uppercase">SECURITY GATE · SHA-256</p>
+          <h2 class="mt-1 text-xl font-normal tracking-editorial text-ink">Вход в Админ-панель KADAR 48</h2>
+        </div>
+        <button type="button" onclick="closeAdminModal()" class="touch-target px-2 text-muted hover:text-ink font-mono cursor-pointer">✕</button>
+      </div>
+
+      <form onsubmit="submitAdminLogin(event)" class="space-y-4">
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="admin-pass-input" class="block text-xs text-muted">Пароль администратора</label>
+            <button
+              type="button"
+              onclick="toggleAdminPassVisibility()"
+              id="admin-pass-toggle-btn"
+              class="text-[11px] font-mono text-muted hover:text-ink underline cursor-pointer"
+            >
+              Показать
+            </button>
+          </div>
+          <input
+            id="admin-pass-input"
+            type="password"
+            required
+            placeholder="Введите пароль..."
+            class="w-full bg-surface px-3.5 py-2.5 border border-line focus:border-ink text-base text-ink focus:outline-none"
+          />
+        </div>
+
+        <p id="admin-login-error" class="hidden text-xs text-[#C83E2B] font-mono"></p>
+
+        <button
+          type="submit"
+          class="w-full touch-target justify-center py-3 bg-ink text-bg text-xs font-mono uppercase tracking-wider hover:opacity-85 transition-opacity cursor-pointer"
+        >
+          Войти в панель управления
+        </button>
+      </form>
+    </div>
+
+    <!-- 2. AUTHENTICATED WIDE ADMIN DASHBOARD -->
+    <div id="admin-dashboard-box" class="hidden bg-bg border border-line max-w-[1560px] w-[96vw] max-h-[94vh] flex flex-col overflow-hidden my-auto shadow-2xl">
+      
+      <!-- Top Bar -->
+      <div class="px-5 sm:px-8 py-4 bg-surface border-b border-line flex flex-wrap items-center justify-between gap-4 shrink-0">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-[#C83E2B]"></span>
+            <span class="font-mono text-xs uppercase text-ink font-medium">KADAR 48 — ПАНЕЛЬ УПРАВЛЕНИЯ САЙТОМ (CMS & CRM)</span>
+          </div>
+          <p class="text-xs text-muted mt-0.5">Широкий режим редактирования: тексты, шрифты и размеры в отдельных столбцах, история текстов в 1 клик и возврат к изначальным настройкам.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <button
+            type="button"
+            onclick="resetAllBlocksToFactoryDefaults()"
+            class="touch-target px-3.5 py-2 border border-[#C83E2B] text-[#C83E2B] text-xs font-mono uppercase tracking-wider hover:bg-[#C83E2B] hover:text-bg transition-colors cursor-pointer"
+            title="Вернуть изначальные тексты, шрифты и размеры всей страницы (сохраненная история текстов не удаляется)"
+          >
+            ↺ Сбросить всю страницу к изначальным
+          </button>
+          <button
+            type="button"
+            onclick="exportStaticHtmlFile()"
+            class="touch-target px-4 py-2 bg-ink text-bg text-xs font-mono uppercase tracking-wider hover:opacity-85 transition-opacity cursor-pointer"
+          >
+            ↓ Скачать обновленный index.html
+          </button>
+          <button
+            type="button"
+            onclick="logoutAdmin()"
+            class="touch-target px-3 py-2 border border-line text-xs font-mono text-muted hover:text-ink hover:border-ink cursor-pointer"
+          >
+            Выйти
+          </button>
+          <button
+            type="button"
+            onclick="closeAdminModal()"
+            class="touch-target px-3 py-2 border border-line text-xs font-mono text-ink hover:bg-bg cursor-pointer"
+          >
+            ✕ Закрыть
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Navigation Tabs -->
+      <div class="px-5 sm:px-8 bg-bg border-b border-line flex flex-wrap gap-6 text-xs font-mono uppercase tracking-wider shrink-0">
+        <button type="button" onclick="switchAdminTab('leads')" id="adm-tab-btn-leads" class="adm-tab-btn py-3.5 border-b-2 border-ink text-ink font-medium cursor-pointer">
+          1. Заявки клиентов (<span id="adm-leads-badge">0</span>)
+        </button>
+        <button type="button" onclick="switchAdminTab('tg')" id="adm-tab-btn-tg" class="adm-tab-btn py-3.5 border-b-2 border-transparent text-muted hover:text-ink cursor-pointer">
+          2. Куда приходят заявки (Telegram / CRM)
+        </button>
+        <button type="button" onclick="switchAdminTab('texts')" id="adm-tab-btn-texts" class="adm-tab-btn py-3.5 border-b-2 border-transparent text-muted hover:text-ink cursor-pointer">
+          3. Тексты, шрифты, история и цены
+        </button>
+        <button type="button" onclick="switchAdminTab('photos')" id="adm-tab-btn-photos" class="adm-tab-btn py-3.5 border-b-2 border-transparent text-muted hover:text-ink cursor-pointer">
+          4. Фотографии и кейсы
+        </button>
+        <button type="button" onclick="switchAdminTab('security')" id="adm-tab-btn-security" class="adm-tab-btn py-3.5 border-b-2 border-transparent text-muted hover:text-ink cursor-pointer">
+          5. Защита и пароль
+        </button>
+      </div>
+
+      <!-- Admin Tab Content Body -->
+      <div class="p-5 sm:p-8 overflow-y-auto flex-grow space-y-8 text-sm">
+
+        <!-- TAB 1: LEADS CRM -->
+        <div id="adm-tab-leads" class="adm-tab-pane space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-line">
+            <div>
+              <h3 class="text-lg font-normal text-ink">Входящие заявки с сайта (CRM)</h3>
+              <p class="text-xs text-muted mt-0.5">Все заявки сохраняются здесь, а при подключении Telegram-бота во вкладке №2 — мгновенно прилетают вам в личные сообщения.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <button type="button" onclick="createDemoLead()" class="px-3.5 py-2 border border-line text-xs font-mono text-ink hover:border-ink cursor-pointer">
+                + Тестовая заявка
+              </button>
+              <button type="button" onclick="exportLeadsToCSV()" class="px-3.5 py-2 border border-ink text-xs font-mono text-ink hover:bg-ink hover:text-bg transition-colors cursor-pointer">
+                ↓ Скачать CSV (Excel)
+              </button>
+            </div>
+          </div>
+
+          <div id="adm-leads-list" class="space-y-4">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- TAB 2: TELEGRAM BOT & WEBHOOK CONFIG (WITH STEP-BY-STEP DIAGNOSTICS) -->
+        <div id="adm-tab-tg" class="adm-tab-pane hidden space-y-6">
+          <div class="max-w-4xl space-y-6">
+            <div>
+              <h3 class="text-lg font-normal text-ink">Уведомления о заявках в Telegram (Работает напрямую без сервера)</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">
+                <strong>Нужен ли сервер или хостинг для отправки в Telegram? Нет!</strong> Сайт отправляет заявки напрямую из браузера по HTTPS в официальный API Telegram (<code class="font-mono text-ink">api.telegram.org</code>) даже с локального компьютера.
+              </p>
+            </div>
+
+            <!-- Why ID alone didn't send + 3-Step Checklist -->
+            <div class="p-5 bg-surface border-l-4 border-[#C83E2B] space-y-3 text-xs leading-relaxed">
+              <p class="font-medium text-ink text-sm">Почему сообщение не приходит, если вписать только Chat ID (6903692674)?</p>
+              <p class="text-muted">
+                В Telegram нельзя отправить сообщение самому себе просто по цифровому ID — доставлять уведомления умеет только бот-почтальон. Поэтому нужны <strong>оба поля</strong>: ваш <code class="font-mono text-ink">Chat ID</code> (мы уже вписали ваш <code class="font-mono text-ink">6903692674</code> ниже) и <code class="font-mono text-ink">Bot Token</code>.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+                <div class="p-3 bg-bg border border-line">
+                  <span class="font-mono text-[11px] text-[#C83E2B] font-medium">ШАГ 1 (30 секунд)</span>
+                  <p class="mt-1 text-ink">Откройте в Telegram официального <strong>@BotFather</strong>, отправьте команду <code class="font-mono">/newbot</code>, задайте любое имя и скопируйте длинный <strong>Token</strong> (вида <code class="font-mono">712345:AAH...</code>).</p>
+                </div>
+                <div class="p-3 bg-bg border border-line">
+                  <span class="font-mono text-[11px] text-[#C83E2B] font-medium">ШАГ 2 (Обязательно!)</span>
+                  <p class="mt-1 text-ink">Перейдите по ссылке в созданного вами бота и нажмите в нем кнопку <strong>Запустить (/start)</strong>, чтобы разрешить ему писать вам.</p>
+                </div>
+                <div class="p-3 bg-bg border border-line">
+                  <span class="font-mono text-[11px] text-[#C83E2B] font-medium">ШАГ 3 (Готово)</span>
+                  <p class="mt-1 text-ink">Вставьте скопированный Token в первое поле ниже (ваш ID <code class="font-mono">6903692674</code> уже стоит во втором поле) и нажмите <strong>«Проверить связь»</strong>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 bg-surface border border-line space-y-5">
+              <div id="adm-tg-token-wrap">
+                <label for="adm-tg-token" class="block text-xs font-mono uppercase text-ink font-medium mb-1.5">
+                  1. TELEGRAM BOT TOKEN (ОТ @BOTFATHER) — <span class="text-[#C83E2B]">ОБЯЗАТЕЛЬНО ДЛЯ ОТПРАВКИ</span>
+                </label>
+                <input
+                  id="adm-tg-token"
+                  type="text"
+                  placeholder="Вставьте сюда токен от @BotFather, например: 7123456789:AAH_xYz..."
+                  class="w-full bg-bg px-3.5 py-2.5 border border-line focus:border-ink font-mono text-xs text-ink focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label for="adm-tg-chatid" class="block text-xs font-mono uppercase text-ink font-medium mb-1.5">
+                  2. ВАШ TELEGRAM CHAT ID (КУДА СЛАТЬ ЗАЯВКИ)
+                </label>
+                <input
+                  id="adm-tg-chatid"
+                  type="text"
+                  value="6903692674"
+                  placeholder="Например: 6903692674"
+                  class="w-full bg-bg px-3.5 py-2.5 border border-line focus:border-ink font-mono text-xs text-ink focus:outline-none"
+                />
+                <p class="text-[11px] text-muted mt-1">Ваш ID <code class="font-mono text-ink">6903692674</code> уже сохранен по умолчанию.</p>
+              </div>
+
+              <div>
+                <label for="adm-webhook-url" class="block text-xs font-mono uppercase text-muted mb-1.5">
+                  3. АЛЬТЕРНАТИВА БЕЗ БОТА: WEBHOOK URL / FORMSPREE.IO / MAKE.COM (НЕОБЯЗАТЕЛЬНО)
+                </label>
+                <input
+                  id="adm-webhook-url"
+                  type="url"
+                  placeholder="https://formspree.io/f/xxxxxxx или вебхук для Google Таблиц"
+                  class="w-full bg-bg px-3.5 py-2.5 border border-line focus:border-ink font-mono text-xs text-ink focus:outline-none"
+                />
+                <p class="text-[11px] text-muted mt-1">Если хотите получать заявки на Email или в Google Таблицы без Telegram-бота, вставьте сюда ссылку из Formspree.io или Make.com.</p>
+              </div>
+
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onclick="saveIntegrationSettings()"
+                  class="px-5 py-2.5 bg-ink text-bg text-xs font-mono uppercase tracking-wider hover:opacity-85 cursor-pointer"
+                >
+                  Сохранить настройки доставки
+                </button>
+                <button
+                  type="button"
+                  onclick="sendTestTelegramNotification()"
+                  class="px-5 py-2.5 border border-ink text-ink text-xs font-mono uppercase hover:bg-ink hover:text-bg transition-colors cursor-pointer"
+                >
+                  Проверить связь (Тест в Telegram)
+                </button>
+              </div>
+
+              <!-- Detailed Diagnostic Output Box -->
+              <div id="adm-tg-diagnostic-box" class="hidden p-4 border text-xs font-mono leading-relaxed"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: WIDE STRUCTURED COLUMNS FOR TEXTS, FONTS, SIZES, HISTORY & RESET -->
+        <div id="adm-tab-texts" class="adm-tab-pane hidden space-y-10">
+
+          <!-- Whole-Page Presets / Snapshots Bar -->
+          <div class="p-5 bg-surface border border-line flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div>
+              <span class="font-mono text-[11px] uppercase text-muted">SNAPSHOTS & RESTORE / УПРАВЛЕНИЕ ВЕРСИЯМИ СТРАНИЦЫ</span>
+              <h3 class="text-base font-medium text-ink mt-0.5">Быстрое переключение вариантов оформления и возврат к изначальным настройкам</h3>
+              <p class="text-xs text-muted mt-0.5">Вы можете сохранить текущие тексты и размеры шрифтов как отдельный пресет или в 1 клик вернуть изначальные настройки сайта.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+              <input
+                id="adm-snapshot-name"
+                type="text"
+                placeholder="Название версии (напр. Акция Нови-Сад)"
+                class="bg-bg px-3 py-2 border border-line text-xs text-ink w-60"
+              />
+              <button
+                type="button"
+                onclick="saveCurrentPageSnapshot()"
+                class="px-4 py-2 bg-ink text-bg text-xs font-mono uppercase cursor-pointer hover:opacity-85"
+              >
+                + Сохранить снимок страницы
+              </button>
+              <select
+                id="adm-snapshots-select"
+                onchange="applyPageSnapshot(this.value)"
+                class="bg-bg px-3 py-2 border border-ink text-xs font-mono text-ink cursor-pointer"
+              >
+                <!-- Populated dynamically -->
+              </select>
+              <button
+                type="button"
+                onclick="resetAllBlocksToFactoryDefaults()"
+                class="px-4 py-2 border border-[#C83E2B] text-[#C83E2B] text-xs font-mono uppercase hover:bg-[#C83E2B] hover:text-bg transition-colors cursor-pointer"
+              >
+                ↺ Вернуть все к изначальным
+              </button>
+            </div>
+          </div>
+
+          <!-- Wide 4-Column Table for Typography, Sizes, Clean Text & Per-Block History -->
+          <div class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line pb-3">
+              <div>
+                <h3 class="text-base font-medium text-ink">Текстовые блоки, шрифты, размеры и история версий (без HTML-кода)</h3>
+                <p class="text-xs text-muted">Каждый блок настраивается в отдельных столбцах: чистый текст, выбор шрифта/начертания, размер в пикселях (ПК и телефон), история написанных текстов и кнопка сброса блока.</p>
+              </div>
+              <button
+                type="button"
+                onclick="saveTextsAndServicesFromAdmin()"
+                class="px-6 py-2.5 bg-ink text-bg text-xs font-mono uppercase tracking-wider hover:opacity-85 cursor-pointer shrink-0"
+              >
+                ✓ Применить и сохранить все изменения
+              </button>
+            </div>
+
+            <div class="overflow-x-auto border border-line bg-bg">
+              <table class="w-full text-left border-collapse min-w-[1180px]">
+                <thead>
+                  <tr class="bg-surface border-b border-line text-[11px] font-mono uppercase text-muted">
+                    <th class="p-4 w-[36%] border-r border-line">1. Блок и чистый текст (без HTML-тегов)</th>
+                    <th class="p-4 w-[20%] border-r border-line">2. Шрифт и начертание</th>
+                    <th class="p-4 w-[18%] border-r border-line">3. Размер (ПК / Моб) и интервал</th>
+                    <th class="p-4 w-[26%]">4. История текстов блока и возврат</th>
+                  </tr>
+                </thead>
+                <tbody id="adm-typography-table-body" class="divide-y divide-line align-top">
+                  <!-- Populated dynamically with structured columns -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Contacts & Services Editor in 2 Wide Columns -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4 border-t border-line">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="flex items-center justify-between border-b border-line pb-2">
+                <h3 class="text-base font-medium text-ink">Контакты студии</h3>
+                <button type="button" onclick="resetContactsToFactory()" class="text-xs font-mono text-muted hover:text-ink underline cursor-pointer">↺ Сбросить контакты</button>
+              </div>
+              <div>
+                <label class="block text-xs text-muted mb-1">Telegram</label>
+                <input id="adm-edit-tg" type="text" class="w-full bg-surface px-3 py-2 border border-line text-xs font-mono text-ink" />
+              </div>
+              <div>
+                <label class="block text-xs text-muted mb-1">WhatsApp / Телефон</label>
+                <input id="adm-edit-wa" type="text" class="w-full bg-surface px-3 py-2 border border-line text-xs font-mono text-ink" />
+              </div>
+              <div>
+                <label class="block text-xs text-muted mb-1">Email студии</label>
+                <input id="adm-edit-email" type="email" class="w-full bg-surface px-3 py-2 border border-line text-xs font-mono text-ink" />
+              </div>
+              <button
+                type="button"
+                onclick="saveTextsAndServicesFromAdmin()"
+                class="w-full py-3 bg-ink text-bg text-xs font-mono uppercase tracking-wider hover:opacity-85 cursor-pointer"
+              >
+                Сохранить контакты и услуги
+              </button>
+            </div>
+
+            <div class="lg:col-span-8 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-line pb-2">
+                <h3 class="text-base font-medium text-ink">Услуги и стоимость (Раздел «Услуги и цены»)</h3>
+                <div class="flex items-center gap-4">
+                  <button type="button" onclick="resetServicesToFactory()" class="text-xs font-mono text-muted hover:text-ink underline cursor-pointer">↺ Вернуть изначальные услуги</button>
+                  <button type="button" onclick="addNewServiceRow()" class="text-xs font-mono underline text-ink cursor-pointer">+ Добавить услугу</button>
+                </div>
+              </div>
+              <div id="adm-services-editor" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: PHOTOS & PORTFOLIO CASES EDITOR -->
+        <div id="adm-tab-photos" class="adm-tab-pane hidden space-y-8">
+          <!-- Main & Studio Photos -->
+          <div class="p-5 bg-surface border border-line space-y-4">
+            <h3 class="text-base font-medium text-ink">Главные фотографии сайта (можно загрузить с компьютера или вставить ссылку)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Hero Photo -->
+              <div class="space-y-2">
+                <p class="text-xs font-medium text-ink">1. Главное фото на первом экране</p>
+                <input id="adm-img-hero" type="text" placeholder="URL картинки..." class="w-full bg-bg px-2.5 py-1.5 border border-line text-xs font-mono" />
+                <label class="inline-block px-3 py-1.5 border border-ink text-xs font-mono cursor-pointer hover:bg-ink hover:text-bg transition-colors">
+                  Загрузить файл с ПК
+                  <input type="file" accept="image/*" class="hidden" onchange="handleImageFileUpload(event, 'adm-img-hero')" />
+                </label>
+              </div>
+
+              <!-- Studio Photo 1 -->
+              <div class="space-y-2">
+                <p class="text-xs font-medium text-ink">2. Фото выездного света («Формат и техника»)</p>
+                <input id="adm-img-studio1" type="text" placeholder="URL картинки..." class="w-full bg-bg px-2.5 py-1.5 border border-line text-xs font-mono" />
+                <label class="inline-block px-3 py-1.5 border border-ink text-xs font-mono cursor-pointer hover:bg-ink hover:text-bg transition-colors">
+                  Загрузить файл с ПК
+                  <input type="file" accept="image/*" class="hidden" onchange="handleImageFileUpload(event, 'adm-img-studio1')" />
+                </label>
+              </div>
+
+              <!-- Studio Photo 2 -->
+              <div class="space-y-2">
+                <p class="text-xs font-medium text-ink">3. Фото студии / монтажа («Формат и техника»)</p>
+                <input id="adm-img-studio2" type="text" placeholder="URL картинки..." class="w-full bg-bg px-2.5 py-1.5 border border-line text-xs font-mono" />
+                <label class="inline-block px-3 py-1.5 border border-ink text-xs font-mono cursor-pointer hover:bg-ink hover:text-bg transition-colors">
+                  Загрузить файл с ПК
+                  <input type="file" accept="image/*" class="hidden" onchange="handleImageFileUpload(event, 'adm-img-studio2')" />
+                </label>
+              </div>
+            </div>
+            <div class="pt-2">
+              <button type="button" onclick="saveMainPhotosFromAdmin()" class="px-5 py-2 bg-ink text-bg text-xs font-mono uppercase cursor-pointer">
+                Применить главные фото
+              </button>
+            </div>
+          </div>
+
+          <!-- Portfolio Projects Editor -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <div>
+                <h3 class="text-base font-medium text-ink">Кейсы в портфолио (Фотографии, города и описание)</h3>
+                <p class="text-xs text-muted">При загрузке фото с компьютера оно автоматически сжимается под веб-формат и вшивается в сайт.</p>
+              </div>
+              <button type="button" onclick="savePortfolioFromAdmin()" class="px-5 py-2.5 bg-ink text-bg text-xs font-mono uppercase cursor-pointer">
+                Сохранить все кейсы
+              </button>
+            </div>
+
+            <div id="adm-projects-editor" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: SECURITY & PASSWORD -->
+        <div id="adm-tab-security" class="adm-tab-pane hidden space-y-6">
+          <div class="max-w-2xl space-y-6">
+            <div>
+              <h3 class="text-lg font-normal text-ink">Защита сайта и смена пароля администратора</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">
+                Как устроена защита: обычные посетители не видят кнопку входа. Даже если кто-то откроет окно входа, после 5 неверных попыток включается блокировка от подбора пароля, а все изменения контента применяются только у вас и вшиваются в скачиваемый файл <code class="font-mono text-ink">index.html</code>. Никто из интернета не сможет поменять ваши фото или тексты на хостинге.
+              </p>
+            </div>
+
+            <div class="p-5 bg-surface border border-line space-y-4">
+              <h4 class="text-sm font-medium text-ink">Сменить пароль входа в админку (SHA-256)</h4>
+              <div>
+                <label class="block text-xs text-muted mb-1">Новый пароль (минимум 6 символов)</label>
+                <input id="adm-new-pass" type="password" placeholder="Новый надежный пароль..." class="w-full bg-bg px-3.5 py-2 border border-line text-sm text-ink" />
+              </div>
+              <div class="flex flex-wrap items-center gap-3">
+                <button type="button" onclick="changeAdminPassword()" class="px-5 py-2.5 bg-ink text-bg text-xs font-mono uppercase cursor-pointer">
+                  Обновить пароль
+                </button>
+                <button type="button" onclick="resetBruteForceCounter()" class="px-4 py-2.5 border border-line text-xs font-mono uppercase text-ink hover:border-ink cursor-pointer">
+                  Сбросить счетчик попыток входа
+                </button>
+              </div>
+              <p id="adm-pass-msg" class="text-xs font-mono text-ink"></p>
+            </div>
+
+            <div class="p-5 border border-line space-y-3">
+              <h4 class="text-sm font-medium text-ink">Сброс к заводским настройкам</h4>
+              <p class="text-xs text-muted">Если нужно вернуть исходные тексты и фотографии по умолчанию:</p>
+              <button type="button" onclick="resetSiteDataToDefaults()" class="px-4 py-2 border border-[#C83E2B] text-[#C83E2B] text-xs font-mono uppercase cursor-pointer">
+                Сбросить изменения контента
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+<script src="script.js"></script>
+</body>
+</html>
