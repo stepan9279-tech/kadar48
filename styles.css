@@ -1,4 +1,4 @@
-﻿/* Generated utility rules. */
+/* Generated utility rules. */
 .fixed {
     position: fixed
 }
@@ -1101,4 +1101,4 @@
 @media(max-width:639px){input,select,textarea{font-size:16px!important}.grid-cols-2{grid-template-columns:1fr}.page-view>section,.page-view>article{overflow-x:hidden}#mobile-drawer{top:61px}.work-card{grid-column:span 1!important}}
 .hover\:bg-\[\\#C83E2B\]:hover{background:var(--accent)}.hover\:bg-bg:hover{background:var(--bg)}.hover\:bg-ink:hover{background:var(--ink)}.hover\:bg-surface:hover{background:var(--surface)}.hover\:border-\[\\#C83E2B\]:hover{border-color:var(--accent)}.hover\:border-ink:hover{border-color:var(--ink)}.hover\:border-muted:hover{border-color:var(--muted)}.hover\:text-bg:hover{color:var(--bg)}.hover\:text-ink:hover{color:var(--ink)}.hover\:text-muted:hover{color:var(--muted)}.hover\:opacity-85:hover{opacity:.85}.hover\:opacity-90:hover{opacity:.9}.group:hover .group-hover\:text-ink{color:var(--ink)}.group:hover .group-hover\:text-muted{color:var(--muted)}.focus\:border-ink:focus{border-color:var(--ink)}.focus\:outline-none:focus{outline:none}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-offset-4:focus{outline-offset:4px}.focus\:outline-ink:focus{outline-color:var(--ink)}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
-
+figure { margin-left: 0; margin-right: 0; margin-bottom: 0; }
